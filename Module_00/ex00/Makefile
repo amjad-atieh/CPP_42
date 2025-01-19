@@ -5,7 +5,7 @@ SRCS := $(addsuffix .cpp, $(SRCS))
 OBJS = $(SRCS:.cpp=.o)
 
 CC = g++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = megaphone
 
