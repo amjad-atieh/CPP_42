@@ -1,18 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/19 07:25:27 by aatieh            #+#    #+#             */
-/*   Updated: 2025/01/20 07:42:10 by aatieh           ###   ########.fr       */
+/*   Created: 2025/01/20 13:28:12 by aatieh            #+#    #+#             */
+/*   Updated: 2025/01/21 07:44:37 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int main()
+# include <iostream>
+
+# define NUMOFLEVELS 4
+
+class Harl
 {
-	return 0;
-}
+private:
+	void	debug( void );
+	void	info( void );
+	void	warning( void );
+	void	error( void );
+	typedef void (Harl::*HarlMemFn)();
+	struct s_LevelFn
+	{
+		std::string level;
+		HarlMemFn function;
+	};
+	struct s_LevelFn functions[4];
+public:
+	Harl();
+	~Harl();
+	void	complain( std::string level );
+};
+
+#endif

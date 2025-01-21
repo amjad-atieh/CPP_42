@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/19 07:25:27 by aatieh            #+#    #+#             */
-/*   Updated: 2025/01/20 07:42:10 by aatieh           ###   ########.fr       */
+/*   Created: 2025/01/20 07:43:25 by aatieh            #+#    #+#             */
+/*   Updated: 2025/01/20 08:57:50 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-int main()
+HumanA::HumanA(std::string name, Weapon &weapon) : weapon(weapon)
 {
-	return 0;
+	this->name = name;
+}
+
+void	HumanA::attack()
+{
+	std::cout << name << " attaked with a " << weapon.getType() << std::endl;
+}
+
+HumanA::~HumanA()
+{
 }

@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/19 07:25:27 by aatieh            #+#    #+#             */
-/*   Updated: 2025/01/20 07:42:10 by aatieh           ###   ########.fr       */
+/*   Created: 2025/01/20 07:42:20 by aatieh            #+#    #+#             */
+/*   Updated: 2025/01/20 09:00:26 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-int main()
+#include <iostream>
+
+class Weapon
 {
-	return 0;
-}
+private:
+	std::string type;
+public:
+	Weapon( std::string weapon_type );
+	~Weapon();
+	std::string	getType() const;
+	void		setType( std::string weapon_name );
+};
+
+
+#endif

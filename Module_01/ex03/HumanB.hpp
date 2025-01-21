@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/19 07:25:27 by aatieh            #+#    #+#             */
-/*   Updated: 2025/01/20 07:42:10 by aatieh           ###   ########.fr       */
+/*   Created: 2025/01/20 07:44:16 by aatieh            #+#    #+#             */
+/*   Updated: 2025/01/20 09:05:48 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-int main()
+# include <iostream>
+# include "Weapon.hpp"
+
+class HumanB
 {
-	return 0;
-}
+private:
+	std::string	name;
+	Weapon		*weapon;
+public:
+	HumanB( std::string	name );
+	~HumanB();
+	void	attack();
+	void	setWeapon( Weapon &weapon );
+};
+
+#endif
