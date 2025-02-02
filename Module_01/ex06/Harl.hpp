@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:28:12 by aatieh            #+#    #+#             */
-/*   Updated: 2025/01/21 07:44:37 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/01/21 19:39:12 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HARL_HPP
 
 # include <iostream>
+# include <string>
 
 # define NUMOFLEVELS 4
 
