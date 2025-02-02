@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 03:50:03 by aatieh            #+#    #+#             */
-/*   Updated: 2025/01/19 06:46:47 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/02 18:05:41 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	Account::displayAccountsInfos( void )
 	_displayTimestamp();
 	std::cout << "accounts:" << _nbAccounts << ";total:" << _totalAmount <<
 		";deposits:" << _totalNbDeposits << ";withdrawals:"
-		<< _totalNbWithdrawals << std::endl;
+		<< _totalNbWithdrawals << '\n';
 }
 
 Account::Account( int initial_deposit )
@@ -78,7 +78,7 @@ void	Account::makeDeposit( int deposit )
 	std::cout << "index:" << _accountIndex << ";p_amount:"
 		<< _amount - deposit << ";deposit:" << deposit
 		<< ";amount:" << _amount << ";nb_deposits:"
-		<< _nbDeposits << std::endl;
+		<< _nbDeposits << '\n';
 }
 
 bool	Account::makeWithdrawal( int withdrawal )
@@ -100,7 +100,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 		std::cout << "index:" << _accountIndex << ";p_amount:"
 			<< _amount + withdrawal << ";withdrawal:" << withdrawal
 			<< ";amount:" << _amount << ";nb_withdrawals:"
-			<< _nbWithdrawals << std::endl;
+			<< _nbWithdrawals << '\n';
 		return true;
 	}
 }
@@ -115,30 +115,17 @@ void	Account::displayStatus( void ) const
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:"
 		<< _amount << ";deposits:" << _nbDeposits << ";withdrawals:"
-		<< _nbWithdrawals << std::endl;
+		<< _nbWithdrawals << '\n';
 }
 
 void	Account::_displayTimestamp( void )
 {
 	std::time_t		now = std::time(0);
 	std::tm			*ltm = std::localtime(&now);
+	char			log_time[19];
 
-	std::cout << "[" << 1900 + ltm->tm_year;
-	if (1 + ltm->tm_mon < 10)
-		std::cout << 0;
-	std::cout << 1 + ltm->tm_mon;
-	if (ltm->tm_mday < 10)
-		std::cout << 0;
-	std::cout << ltm->tm_mday << "_";
-	if (ltm->tm_hour < 10)
-		std::cout << 0;
-	std::cout << ltm->tm_hour;
-	if (ltm->tm_min < 10)
-		std::cout << 0;
-	std::cout << ltm->tm_min;
-	if (ltm->tm_sec < 10)
-		std::cout << 0;
-	std::cout << ltm->tm_sec << "] ";
+	std::strftime (log_time, 19, "[%G%m%d_%H%M%S] ", ltm);
+	std::cout << log_time;
 }
 
 Account::Account( void )

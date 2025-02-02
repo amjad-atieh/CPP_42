@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 19:07:24 by aatieh            #+#    #+#             */
-/*   Updated: 2025/01/13 19:49:50 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/02 17:31:04 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 int	main(int argc, char **argv)
 {
-	int	j;
-
-	for (int i = 1; i < argc; i++)
-	{
-		for (j = 0; argv[i][j]; j++)
-			std::cout << (char)std::toupper(argv[i][j]);
-		if (argv[i][--j] != ' ' && (i + 1 < argc && argv[i + 1][0] != ' '))
-			std::cout << " ";
-	}
 	if (argc == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	std::cout << std::endl;
-	return (0);
+	for (int i = 1; i < argc; i++)
+	{
+		std::string str = argv[i];
+		for (size_t j = 0; j < str.length(); j++)
+		{
+			if (!isupper(str[j]))
+				str.replace(j, 1, 1, toupper(str[j]));
+		}
+		std::cout << str;
+	}
+	std::cout << '\n';
+	return 0;
 }

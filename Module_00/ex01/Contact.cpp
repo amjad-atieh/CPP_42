@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:09:08 by aatieh            #+#    #+#             */
-/*   Updated: 2025/01/19 06:53:47 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/02 19:46:56 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,23 @@ Contact::Contact()
 
 bool Contact::AddContact()
 {
-	std::cout << "Enter first name\n";
-	std::cin >> first_name;
-	std::cout << "Enter last name\n";
-	std::cin >> last_name;
-	std::cout << "Enter nickname\n";
-	std::cin >> nickname;
-	std::cout << "Enter phone number\n";
-	std::cin >> phone_num;
-	std::cout << "Enter darkest secret\n";
-	std::cin >> darkest_secret;
+	std::cout << "Enter first name: ";
+	if (!std::getline(std::cin, first_name))
+		return false;
+	std::cout << "Enter last name: ";
+	if (!std::getline(std::cin, last_name))
+		return false;
+	std::cout << "Enter nickname: ";
+	if (!std::getline(std::cin, nickname))
+		return false;
+	std::cout << "Enter phone number: ";
+	if (!std::getline(std::cin, phone_num))
+		return false;
+	std::cout << "Enter darkest secret: ";
+	if (!std::getline(std::cin, darkest_secret))
+		return false;
 	if (!first_name.length() || !last_name.length() || !nickname.length()
-		| !phone_num.length() || !darkest_secret.length())
+		|| !phone_num.length() || !darkest_secret.length())
 	{
 		std::cout << "Error: Empty field, contact wasn't saved\n";
 		first_name = "";
@@ -66,6 +71,7 @@ void Contact::PrintContactColumn()
 	PrintColumn(first_name, 0);
 	PrintColumn(last_name, 0);
 	PrintColumn(nickname, 1);
+	std::cout << '\n';
 }
 
 bool	Contact::ContactEmpty()
@@ -77,11 +83,11 @@ bool	Contact::ContactEmpty()
 
 void	Contact::PrintContact()
 {
-	std::cout << std::endl;
-	std::cout << "First Name: " << first_name << std::endl;
-	std::cout << "Last Name: " << last_name << std::endl;
-	std::cout << "Nickname: " << nickname << std::endl;
-	std::cout << "Phone Number: " << phone_num << std::endl;
-	std::cout << "Darkest Secret: " << darkest_secret << std::endl;
-	std::cout << std::endl;
+	std::cout << '\n';
+	std::cout << "First Name: " << first_name << '\n';
+	std::cout << "Last Name: " << last_name << '\n';
+	std::cout << "Nickname: " << nickname << '\n';
+	std::cout << "Phone Number: " << phone_num << '\n';
+	std::cout << "Darkest Secret: " << darkest_secret << '\n';
+	std::cout << '\n';
 }

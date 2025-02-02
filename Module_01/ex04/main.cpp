@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 09:26:49 by aatieh            #+#    #+#             */
-/*   Updated: 2025/01/20 13:25:56 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/02 17:37:54 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ bool	open_files(char *argv[], std::ifstream	&in_file, std::ofstream	&out_file)
 	in_file.open(argv[1], std::fstream::in);
 	if (!in_file.is_open())
 	{
-		std::cout << "Unable to open " << argv[1] << std::endl;
+		std::cout << "Unable to open " << argv[1] << '\n';
 		return false;
 	}
 	replace_name = argv[1] + (std::string)".replace";
@@ -35,7 +35,7 @@ bool	open_files(char *argv[], std::ifstream	&in_file, std::ofstream	&out_file)
 	if (!out_file.is_open())
 	{
 		in_file.close();
-		std::cout << "Unable to open or create " << replace_name << std::endl;
+		std::cout << "Unable to open or create " << replace_name << '\n';
 		return false;
 	}
 	return true;
@@ -60,7 +60,7 @@ int	main(int argc, char **argv)
 		index = line.find(argv[2]);
 		if (index != -1)
 			ft_replace(line, argv[2], argv[3], index);
-		out_file << line << std::endl;
+		out_file << line << '\n';
 	}
 	in_file.close();
 	out_file.close();

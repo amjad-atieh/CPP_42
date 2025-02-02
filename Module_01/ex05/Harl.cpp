@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:28:02 by aatieh            #+#    #+#             */
-/*   Updated: 2025/01/21 07:53:56 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/02 17:16:06 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,27 @@ Harl::~Harl()
 void	Harl::debug( void )
 {
 	std::cout << "I like to weigh my fries to ensure I get"
-		<< " the perfect portion every time. Precision matters!" << std::endl;
+		<< " the perfect portion every time. Precision matters!\n";
 }
 
 void	Harl::info( void )
 {
 	std::cout << "I can't believe they gave me fewer fries this time."
-		<< " I paid for a full portion, and now I feel cheated!" << std::endl;
+		<< " I paid for a full portion, and now I feel cheated!\n";
 }
 
 void	Harl::warning( void )
 {
 	std::cout << "I’ve been ordering fries from here for years."
 		<< " You can’t just skimp on the portions because"
-		<< " you’re in a rush." << std::endl;
+		<< " you’re in a rush.\n";
 }
 
 void	Harl::error( void )
 {
 	std::cout << "This is unacceptable! My fries are cold and soggy."
 		<< " I demand a fresh batch immediately!"
-		<< " or I will be escalating this to cooperate." << std::endl;
+		<< " or I will be escalating this to cooperate.\n";
 }
 
 void	Harl::complain( std::string level )
@@ -67,5 +67,5 @@ void	Harl::complain( std::string level )
 			return ;
 		}
 	}
-	std::cout << "Mumbling with dissatisfied munching noises" << std::endl;
+	std::cout << "Mumbling with dissatisfied munching noises\n";
 }

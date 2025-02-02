@@ -12,7 +12,7 @@ OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJS_DIR)/%.o)
 # HEADERS := $(addsuffix .hpp, $(HEADERS))
 # HEADERS := $(addprefix $(HEADERS_DIR)/, $(HEADERS))
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = PhoneBook

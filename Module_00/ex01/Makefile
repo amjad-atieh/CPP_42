@@ -1,11 +1,11 @@
 OBJS_DIR = obj
 
-SRCS = PhoneBook Contact
+SRCS = PhoneBook Contact main
 SRCS := $(addsuffix .cpp, $(SRCS))
 
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = PhoneBook

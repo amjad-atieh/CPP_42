@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 17:49:52 by aatieh            #+#    #+#             */
-/*   Updated: 2025/01/20 07:41:48 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/02 17:35:52 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ int	main()
 
 	string = "HI THIS IS BRAIN";
 	std::cout << "The memory address of the string variable is: "
-		<< &string << std::endl;
+		<< &string << '\n';
 	std::cout << "The memory address held by stringPTR is: "
-		<< &stringPTR << std::endl;
+		<< &stringPTR << '\n';
 	std::cout << "The memory address held by stringREF is: "
-		<< &stringREF << std::endl << std::endl;
+		<< &stringREF << '\n' << '\n';
 	std::cout << "The value of the string variable: "
-		<< string << std::endl;
+		<< string << '\n';
 	std::cout << "The value pointed to by stringPTR: "
-		<< *stringPTR << std::endl;
+		<< *stringPTR << '\n';
 	std::cout << "The value pointed to by stringREF: "
-		<< stringREF << std::endl;
+		<< stringREF << '\n';
 	return 0;
 }

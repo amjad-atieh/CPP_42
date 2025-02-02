@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 07:44:37 by aatieh            #+#    #+#             */
-/*   Updated: 2025/02/02 17:12:44 by aatieh           ###   ########.fr       */
+/*   Created: 2025/02/02 18:10:16 by aatieh            #+#    #+#             */
+/*   Updated: 2025/02/02 18:12:32 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-int main()
+# include "Contacts.hpp"
+
+class PhoneBook
 {
-	Weapon club = Weapon("crude spiked club");
-	HumanA bob("Bob", club);
-	bob.attack();
-	club.setType("some other type of club");
-	bob.attack();
+private:
+	int		index;
+	Contact	contacts[8];
 
-	Weapon club = Weapon("crude spiked club");
-	HumanB jim("Jim");
-	jim.setWeapon(club);
-	jim.attack();
-	club.setType("some other type of club");
-	jim.attack();
-	return 0;
-}
+public:
+	PhoneBook();
+	void AddPhoneBook();
+	void SearchPhoneBook();
+};
+
+
+#endif

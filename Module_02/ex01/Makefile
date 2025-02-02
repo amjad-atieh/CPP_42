@@ -7,7 +7,7 @@ SRCS := $(addsuffix .cpp, $(SRCS))
 
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJS_DIR)/%.o)
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = Fixed
