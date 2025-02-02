@@ -6,13 +6,31 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 07:25:27 by aatieh            #+#    #+#             */
-/*   Updated: 2025/01/20 07:42:04 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/02 06:44:33 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <stdlib.h>
 
-int main()
+int	main()
 {
+	Zombie*	zombie = NULL;
+	int		n;
+
+	std::cout << "Enter the number of zombies you want to create: ";
+	std::cin >> n;
+	if (n < 1)
+	{
+		std::cerr << "Invalid number of zombies!" << std::endl;
+		return 0;
+	}
+	zombie = zombie->zombieHorde(n, "Tom");
+	for (int i = 0; i < n; ++i)
+	{
+		std::cout << "Zombie " << i + 1 << ": ";
+		zombie[i].announce();
+	}
+	operator delete[] (zombie);
 	return 0;
 }
