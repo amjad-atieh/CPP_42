@@ -8,7 +8,7 @@ OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Violence
+NAME = violence
 
 all: $(NAME)
 

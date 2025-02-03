@@ -1,6 +1,6 @@
 OBJS_DIR = obj
 
-SRCS = main Zombie
+SRCS = main Zombie zombieHorde
 SRCS := $(addsuffix .cpp, $(SRCS))
 
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
@@ -8,7 +8,7 @@ OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Zombie
+NAME = zombie_horde
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:28:02 by aatieh            #+#    #+#             */
-/*   Updated: 2025/02/02 17:16:06 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/03 20:58:15 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 Harl::Harl()
 {
 	functions[0].level = "DEBUG";
-	functions[0].function =  &Harl::debug;
+	functions[0].complain = &Harl::debug;
 	functions[1].level = "INFO";
-	functions[1].function = &Harl::info;
+	functions[1].complain = &Harl::info;
 	functions[2].level = "WARNING";
-	functions[2].function = &Harl::warning;
+	functions[2].complain = &Harl::warning;
 	functions[3].level = "ERROR";
-	functions[3].function = &Harl::error;
+	functions[3].complain = &Harl::error;
 }
 
 Harl::~Harl()
@@ -42,28 +42,26 @@ void	Harl::info( void )
 
 void	Harl::warning( void )
 {
-	std::cout << "I’ve been ordering fries from here for years."
+	std::cerr << "I’ve been ordering fries from here for years."
 		<< " You can’t just skimp on the portions because"
 		<< " you’re in a rush.\n";
 }
 
 void	Harl::error( void )
 {
-	std::cout << "This is unacceptable! My fries are cold and soggy."
+	std::cerr << "This is unacceptable! My fries are cold and soggy."
 		<< " I demand a fresh batch immediately!"
 		<< " or I will be escalating this to cooperate.\n";
 }
 
 void	Harl::complain( std::string level )
 {
-	HarlMemFn fn;
 
 	for(int i = 0; i < NUMOFLEVELS; i++)
 	{
 		if (functions[i].level == level)
 		{
-			fn = functions[i].function;
-			(this->*fn)();
+			(this->*functions[i].complain)();
 			return ;
 		}
 	}

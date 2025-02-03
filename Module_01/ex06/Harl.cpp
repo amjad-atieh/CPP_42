@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:28:02 by aatieh            #+#    #+#             */
-/*   Updated: 2025/02/02 17:16:26 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/03 19:56:45 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void	Harl::info( void )
 
 void	Harl::warning( void )
 {
-	std::cout << "[WARNING] " << "I’ve been ordering fries from here for years."
+	std::cerr << "[WARNING] " << "I’ve been ordering fries from here for years."
 		<< " You can’t just skimp on the portions because"
 		<< " you’re in a rush.\n";
 }
 
 void	Harl::error( void )
 {
-	std::cout << "[ERROR] " << "This is unacceptable! My fries are cold and soggy."
+	std::cerr << "[ERROR] " << "This is unacceptable! My fries are cold and soggy."
 		<< " I demand a fresh batch immediately!"
 		<< " or I will be escalating this to cooperate.\n";
 }

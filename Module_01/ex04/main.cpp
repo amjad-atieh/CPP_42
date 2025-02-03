@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 09:26:49 by aatieh            #+#    #+#             */
-/*   Updated: 2025/02/02 17:37:54 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/03 19:54:52 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,65 @@
 #include <string>
 #include <fstream>
 
-void	ft_replace(std::string &line, std::string replace, std::string replacement, int index)
+#include <iostream>
+#include <string>
+#include <fstream>
+
+void ft_replace(std::string &line, std::string replace, std::string replacement, size_t index)
 {
 	line.erase(index, replace.length());
 	line.insert(index, replacement);
 }
 
-bool	open_files(char *argv[], std::ifstream	&in_file, std::ofstream	&out_file)
+bool open_files(char *argv[], std::ifstream &in_file, std::ofstream &out_file)
 {
 	std::string replace_name;
 
 	in_file.open(argv[1], std::fstream::in);
 	if (!in_file.is_open())
 	{
-		std::cout << "Unable to open " << argv[1] << '\n';
+		std::cerr << "Unable to open " << argv[1] << '\n';
 		return false;
 	}
-	replace_name = argv[1] + (std::string)".replace";
+	replace_name = argv[1] + (std::string) ".replace";
 	out_file.open(replace_name.c_str(), std::ios::out);
 	if (!out_file.is_open())
 	{
 		in_file.close();
-		std::cout << "Unable to open or create " << replace_name << '\n';
+		std::cerr << "Unable to open or create " << replace_name << '\n';
 		return false;
 	}
 	return true;
 }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	std::ifstream	in_file;
-	std::ofstream	out_file;
-	std::string		line;
-	int				index;
+	std::ifstream in_file;
+	std::ofstream out_file;
+	std::string line;
+	size_t index;
+	size_t len;
 
 	if (argc != 4)
 	{
-		std::cout << "incorrect number of inputs\n";
+		std::cerr << "incorrect number of inputs\n";
 		return 1;
 	}
 	if (!open_files(argv, in_file, out_file))
 		return 2;
+	len = std::string(argv[3]).length();
 	while (std::getline(in_file, line))
 	{
-		index = line.find(argv[2]);
-		if (index != -1)
+		index = 0;
+		while (index < line.length())
+		{
+			index = line.find(argv[2], index);
+			if (index == std::string::npos)
+				break;
+			std::cout << "found " << argv[2] << " at index " << index << '\n';
 			ft_replace(line, argv[2], argv[3], index);
+			index += len;
+		}
 		out_file << line << '\n';
 	}
 	in_file.close();
