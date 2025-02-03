@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:10:16 by aatieh            #+#    #+#             */
-/*   Updated: 2025/02/02 18:12:32 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/03 18:03:48 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ private:
 
 public:
 	PhoneBook();
-	void AddPhoneBook();
-	void SearchPhoneBook();
+	void	AddPhoneBook();
+	void 	SearchPhoneBook();
 };
 
 

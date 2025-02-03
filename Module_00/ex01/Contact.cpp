@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:09:08 by aatieh            #+#    #+#             */
-/*   Updated: 2025/02/02 19:46:56 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/03 18:03:31 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ bool Contact::AddContact()
 	return true;
 }
 
-void	PrintColumn(std::string str, int last)
+void	PrintColumn(std::string str)
 {
 	std::string Spaces;
 
@@ -62,15 +62,14 @@ void	PrintColumn(std::string str, int last)
 		std::cout << Spaces.substr(0, 10 - str.length()) << str;
 	else
 		std::cout << str.substr(0, 9) << ".";
-	if (!last)
-		std::cout << "|";
+	std::cout << "|";
 }
 
 void Contact::PrintContactColumn()
 {
-	PrintColumn(first_name, 0);
-	PrintColumn(last_name, 0);
-	PrintColumn(nickname, 1);
+	PrintColumn(first_name);
+	PrintColumn(last_name);
+	PrintColumn(nickname);
 	std::cout << '\n';
 }
 

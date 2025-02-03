@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 19:49:38 by aatieh            #+#    #+#             */
-/*   Updated: 2025/02/03 17:47:02 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/03 18:03:53 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void PhoneBook::SearchPhoneBook()
 	int			dst_index;
 	std::string	input;
 
+	std::cout << "     index|first name| last name|  nickname|\n";
 	for(int i = 0; i < 8; i++)
 	{
 		if (contacts[i].ContactEmpty())
