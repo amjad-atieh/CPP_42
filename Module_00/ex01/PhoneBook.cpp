@@ -6,14 +6,13 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 19:49:38 by aatieh            #+#    #+#             */
-/*   Updated: 2025/02/02 19:51:15 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/03 17:47:02 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contacts.hpp"
 #include "PhoneBook.hpp"
 #include <iostream>
-#include <limits>
 
 PhoneBook::PhoneBook()
 {
@@ -32,7 +31,8 @@ void PhoneBook::AddPhoneBook()
 
 void PhoneBook::SearchPhoneBook()
 {
-	int	dst_index;
+	int			dst_index;
+	std::string	input;
 
 	for(int i = 0; i < 8; i++)
 	{
@@ -42,14 +42,13 @@ void PhoneBook::SearchPhoneBook()
 		contacts[i].PrintContactColumn();
 	}
 	std::cout << "Enter the desired index: ";
-	std::cin >> dst_index;
-	if (std::cin.bad() || std::cin.eof() || std::cin.fail())
+	std::getline(std::cin, input);
+	dst_index = input[0] - '0';
+	if (std::cin.bad() || std::cin.eof() || std::cin.fail() || input.length() != 1)
 	{
-		if (!std::cin.eof())
-		{
-			std::cin.clear();
-			std::cout << "invalid index input\n";
-		}
+		if (std::cin.eof())
+			return;
+		std::cout << "invalid index input\n";
 		return;
 	}
 	if (dst_index > 7)
