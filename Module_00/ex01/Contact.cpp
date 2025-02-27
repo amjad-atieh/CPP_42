@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:09:08 by aatieh            #+#    #+#             */
-/*   Updated: 2025/02/03 18:03:31 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/27 17:37:56 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,9 @@ bool	Contact::ContactEmpty()
 
 void	Contact::PrintContact()
 {
-	std::cout << '\n';
 	std::cout << "First Name: " << first_name << '\n';
 	std::cout << "Last Name: " << last_name << '\n';
 	std::cout << "Nickname: " << nickname << '\n';
 	std::cout << "Phone Number: " << phone_num << '\n';
 	std::cout << "Darkest Secret: " << darkest_secret << '\n';
-	std::cout << '\n';
 }

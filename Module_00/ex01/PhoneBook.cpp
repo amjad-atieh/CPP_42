@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 19:49:38 by aatieh            #+#    #+#             */
-/*   Updated: 2025/02/03 18:49:26 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/27 17:51:08 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void PhoneBook::SearchPhoneBook()
 	}
 	std::cout << "Enter the desired index: ";
 	std::getline(std::cin, input);
-	dst_index = input[0] - '0';
 	if (std::cin.bad() || std::cin.eof() || std::cin.fail() || input.length() != 1)
 	{
 		if (std::cin.eof())
@@ -52,9 +51,13 @@ void PhoneBook::SearchPhoneBook()
 		std::cerr << "invalid index input\n";
 		return;
 	}
-	if (dst_index > 7)
-		std::cerr << "The number entered is out if range\n";
-	else if (contacts[dst_index].ContactEmpty())
+	if (input[0] < '0' || input[0] > '7')
+	{
+		std::cerr << "invalid index input\n";
+		return;
+	}
+	dst_index = input[0] - '0';
+	if (contacts[dst_index].ContactEmpty())
 		std::cerr << "Index entered is empty\n";
 	else
 		contacts[dst_index].PrintContact();
