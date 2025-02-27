@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 07:26:01 by aatieh            #+#    #+#             */
-/*   Updated: 2025/02/02 17:35:31 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/27 18:16:23 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ class Zombie
 private:
 	std::string	name;
 public:
+			Zombie();
 			Zombie( std::string name );
 			~Zombie();
 	void	announce( void );
 	Zombie*	newZombie( std::string name );
 	void	randomChump( std::string name );
 };
-
 
 #endif

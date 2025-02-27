@@ -6,19 +6,27 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 07:25:27 by aatieh            #+#    #+#             */
-/*   Updated: 2025/02/02 17:10:38 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/27 18:37:56 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
+Zombie*	zombie_assigner(std::string name)
+{
+	Zombie* heap_zombie = NULL;
+
+	heap_zombie = heap_zombie->newZombie(name);
+	return (heap_zombie);
+}
+
 int main()
 {
-	Zombie*	zombie1 = NULL;
+	Zombie	*zombie = NULL;
 
-	zombie1 = zombie1->newZombie("Tod");
-	zombie1->randomChump("Bob");
-	zombie1->announce();
-	delete zombie1;
+	zombie->randomChump("Ahmad");
+	zombie = zombie_assigner("Alia");
+	zombie->announce();
+	delete zombie;
 	return 0;
 }
