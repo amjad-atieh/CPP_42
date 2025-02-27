@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 09:26:49 by aatieh            #+#    #+#             */
-/*   Updated: 2025/02/03 19:54:52 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/02/27 23:02:36 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int main(int argc, char **argv)
 			index = line.find(argv[2], index);
 			if (index == std::string::npos)
 				break;
-			std::cout << "found " << argv[2] << " at index " << index << '\n';
 			ft_replace(line, argv[2], argv[3], index);
 			index += len;
 		}
