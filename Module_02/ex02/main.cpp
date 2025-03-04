@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 07:40:00 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/04 12:12:09 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/04 18:09:35 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,21 @@
 int main(void)
 {
 	Fixed a;
-	Fixed const b(10);
-	Fixed const c(42.42f);
-	Fixed const d(b);
+	Fixed const b(Fixed(5.05f) * Fixed(2));
 
-	a = Fixed(1234.4321f);
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	if (a > b)
+		std::cout << a << " is greater than " << b << std::endl;
+	else if (a == b)
+		std::cout << a << " is equal to " << b << std::endl;
+	else if (a < b)
+		std::cout << a << " is less than " << b << std::endl;
+	std::cout << Fixed::min(a, b) << std::endl;
+	std::cout << Fixed::max(a, b) << std::endl;
 	return 0;
 }

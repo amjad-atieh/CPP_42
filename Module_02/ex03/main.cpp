@@ -6,28 +6,24 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 07:40:00 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/04 12:12:09 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/04 18:06:23 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
+#include "bsp.cpp"
 #include <iostream>
 
 int main(void)
 {
-	Fixed a;
-	Fixed const b(10);
-	Fixed const c(42.42f);
-	Fixed const d(b);
+	Point a(0.0f, 0.0f);
+	Point b(4.0f, 0.0f);
+	Point c(0.0f, 4.0f);
+	Point point(2.0f, 2.0f);
 
-	a = Fixed(1234.4321f);
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	if (bsp(a, b, c, point))
+		std::cout << "The point is inside the triangle\n";
+	else
+		std::cout << "The point is outside the triangle\n";
 	return 0;
 }
