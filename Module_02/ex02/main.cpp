@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 07:40:00 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/04 18:09:35 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/04 18:18:47 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main(void)
 {
 	Fixed a;
 	Fixed const b(Fixed(5.05f) * Fixed(2));
+	Fixed c;
 
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
@@ -32,5 +33,9 @@ int main(void)
 		std::cout << a << " is less than " << b << std::endl;
 	std::cout << Fixed::min(a, b) << std::endl;
 	std::cout << Fixed::max(a, b) << std::endl;
+	c = Fixed(4) * Fixed(2);
+	std::cout << c << std::endl;
+	c = Fixed(4) / Fixed(2);
+	std::cout << c << std::endl;
 	return 0;
 }
