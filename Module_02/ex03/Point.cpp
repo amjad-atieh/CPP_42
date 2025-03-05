@@ -6,12 +6,13 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:02:45 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/04 18:00:37 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/05 06:15:13 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
+// Constructors
 Point::Point() : x(0), y(0)
 {
 }
@@ -24,19 +25,19 @@ Point::Point(const float &x_init, const float &y_init) : x(x_init), y(y_init)
 {
 }
 
-
-
+// Destructor
 Point::~Point()
 {
 }
 
-
+// Operators
 Point &Point::operator=(const Point &assign)
 {
 	(void)assign;
 	return *this;
 }
 
+// Member functions
 Fixed const	Point::getX( void ) const
 {
 	return x;

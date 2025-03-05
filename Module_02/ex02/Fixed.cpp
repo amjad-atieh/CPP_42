@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 07:39:43 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/04 13:52:08 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/05 06:12:45 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,11 @@
 #include <iostream>
 #include <cmath>
 
+// Constructors
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called\n";
 	value = 0;
-}
-
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called\n";
 }
 
 Fixed::Fixed( const Fixed &src )
@@ -43,6 +39,13 @@ Fixed::Fixed( const float init_value )
 	value = roundf(init_value * (1 << f_bits));
 }
 
+// Destructor
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called\n";
+}
+
+// Operators
 Fixed	&Fixed::operator=(const Fixed &rhs)
 {
 	std::cout << "Copy assignment operator called\n";
@@ -57,6 +60,7 @@ std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
 	return out;
 }
 
+// Member functions
 int	Fixed::getRawBits( void ) const
 {
 	return value;

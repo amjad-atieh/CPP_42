@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 07:39:01 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/04 16:40:16 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/05 06:17:03 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ class Fixed
 {
 	public:
 
+		// Constructors
 		Fixed();
 		~Fixed();
 		Fixed( const Fixed &src );
 		Fixed( const int init_value );
 		Fixed( const float init_value );
 
+		// Operators
 		Fixed	&operator=( const Fixed &src );
 		bool	operator>( const Fixed &src ) const;
 		bool	operator<( const Fixed &src ) const;
@@ -41,6 +43,7 @@ class Fixed
 		Fixed	operator++( int );
 		Fixed	operator--( int );
 
+		// Member functions
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
 		float	toFloat( void ) const;
