@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:02:06 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/05 11:12:55 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/07 11:42:35 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ ClapTrap::ClapTrap()
 {
 	std::cout << "\e[0;33mDefault Constructor called of ClapTrap\e[0m" << std::endl;
 	name = "common_ClapTrap";
-	hitpoints = CLAP_MAX_HITPOINTS;
-	energyPoints = CLAP_MAX_ENERGYPOINTS;
+	hitpoints = CLAP_DEF_HITPOINTS;
+	energyPoints = CLAP_DEF_ENERGYPOINTS;
 	attackDamage = 0;
 }
 
@@ -35,11 +35,30 @@ ClapTrap::ClapTrap(std::string name)
 {
 	std::cout << "\e[0;33mConstructor called of ClapTrap\e[0m" << std::endl;
 	this->name = name;
-	hitpoints = CLAP_MAX_HITPOINTS;
-	energyPoints = CLAP_MAX_ENERGYPOINTS;
+	hitpoints = CLAP_DEF_HITPOINTS;
+	energyPoints = CLAP_DEF_ENERGYPOINTS;
 	attackDamage = 0;
 }
 
+ClapTrap::ClapTrap(unsigned int hitpoints, unsigned int energyPoints,
+	unsigned int attackDamage)
+{
+	std::cout << "\e[0;33mConstructor called of ClapTrap\e[0m" << std::endl;
+	this->name = "common_ClapTrap";
+	this->hitpoints = hitpoints;
+	this->energyPoints = energyPoints;
+	this->attackDamage = attackDamage;
+}
+
+ClapTrap::ClapTrap(std::string name, unsigned int hitpoints, unsigned int energyPoints,
+	unsigned int attackDamage)
+{
+	std::cout << "\e[0;33mConstructor called of ClapTrap\e[0m" << std::endl;
+	this->name = name;
+	this->hitpoints = hitpoints;
+	this->energyPoints = energyPoints;
+	this->attackDamage = attackDamage;
+}
 
 // Destructor
 ClapTrap::~ClapTrap()

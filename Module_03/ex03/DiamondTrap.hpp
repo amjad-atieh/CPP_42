@@ -6,12 +6,13 @@
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
-class DiamondTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 	public:
 
 		// Constructors
 		DiamondTrap();
+		DiamondTrap(std::string name);
 		DiamondTrap(const DiamondTrap &copy);
 
 		// Destructor
@@ -22,9 +23,7 @@ class DiamondTrap
 
 		// Member functions
 		void	whoAmI(void);
-		void	attack(std::string const & target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+
 	private:
 
 		std::string name;

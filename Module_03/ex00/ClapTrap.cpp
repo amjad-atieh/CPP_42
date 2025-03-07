@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:02:06 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/05 11:11:39 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/07 11:42:35 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ ClapTrap::ClapTrap()
 {
 	std::cout << "\e[0;33mDefault Constructor called of ClapTrap\e[0m" << std::endl;
 	name = "common_ClapTrap";
-	hitpoints = MAX_HITPOINTS;
-	energyPoints = MAX_ENERGYPOINTS;
+	hitpoints = DEF_HITPOINTS;
+	energyPoints = DEF_ENERGYPOINTS;
 	attackDamage = 0;
 }
 
@@ -35,8 +35,8 @@ ClapTrap::ClapTrap(std::string name)
 {
 	std::cout << "\e[0;33mConstructor called of ClapTrap\e[0m" << std::endl;
 	this->name = name;
-	hitpoints = MAX_HITPOINTS;
-	energyPoints = MAX_ENERGYPOINTS;
+	hitpoints = DEF_HITPOINTS;
+	energyPoints = DEF_ENERGYPOINTS;
 	attackDamage = 0;
 }
 
@@ -125,9 +125,9 @@ void	ClapTrap::beRepaired(unsigned int amount)
 			<< " is already destroyed!\e[0m" << std::endl;
 		return ;
 	}
-	if (hitpoints + amount > MAX_HITPOINTS)
-		amount = MAX_HITPOINTS - hitpoints;
-	if (energyPoints && hitpoints < MAX_HITPOINTS)
+	if (hitpoints + amount > DEF_HITPOINTS)
+		amount = DEF_HITPOINTS - hitpoints;
+	if (energyPoints && hitpoints < DEF_HITPOINTS)
 	{
 		std::cout << "\e[0;34mClapTrap " << name << " has been repaired by "
 			<< amount << " points!\e[0m" << std::endl;

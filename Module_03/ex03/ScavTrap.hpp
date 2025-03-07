@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 09:25:55 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/05 10:34:41 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/07 16:47:47 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 # include <string>
 # include "ClapTrap.hpp"
 
-# define SCAV_MAX_HITPOINTS 100
-# define SCAV_MAX_ENERGYPOINTS 50
+# define SCAV_DEF_HITPOINTS 100
+# define SCAV_DEF_ENERGYPOINTS 50
+# define SCAV_ATTACK_DAMAGE 20
 
-class ScavTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public:
 
@@ -36,18 +37,8 @@ class ScavTrap
 		ScavTrap & operator=(const ScavTrap &assign);
 
 		// Member functions
-		ClapTrap	getClaptrap() const;
-		bool		getIsGuardGate() const;
-
 		void	guardGate();
 		void	attack(std::string const &target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
-
-	private:
-
-	ClapTrap		claptrap;
-	bool			isGuardGate;
 
 };
 
