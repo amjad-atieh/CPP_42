@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:02:45 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/05 06:15:13 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/07 12:22:09 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ Point::~Point()
 Point &Point::operator=(const Point &assign)
 {
 	(void)assign;
+	std::cout << "Point assignation operator does nothing" << std::endl;
 	return *this;
 }
 

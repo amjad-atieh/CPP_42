@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 07:40:00 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/04 18:18:47 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/07 17:46:09 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ int main(void)
 	Fixed const b(Fixed(5.05f) * Fixed(2));
 	Fixed c;
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
+	std::cout << "a: " << a << std::endl;
+	std::cout << "++a: " << ++a << std::endl;
+	std::cout << "a: " << a << std::endl;
+	std::cout << "a++: " << a++ << std::endl;
+	std::cout << "a: " << a << std::endl;
+	std::cout << "b: " << b << std::endl;
+	std::cout << "a + b: " << a + b << std::endl;
+	std::cout << "a - b: " << a - b << std::endl;
 	if (a > b)
 		std::cout << a << " is greater than " << b << std::endl;
 	else if (a == b)

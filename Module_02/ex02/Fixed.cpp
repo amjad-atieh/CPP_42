@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 07:39:43 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/05 06:12:45 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/07 18:11:37 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Fixed::Fixed( const Fixed &src )
 Fixed::Fixed( const int init_value )
 {
 	std::cout << "Int constructor called\n";
-	value = init_value * (1 << f_bits);
+	value = init_value << f_bits;
 }
 
 Fixed::Fixed( const float init_value )
@@ -78,52 +78,59 @@ float	Fixed::toFloat( void ) const
 
 int	Fixed::toInt( void ) const
 {
-	return (value / (1 << f_bits));
+	return (value >> f_bits);
 }
 
 bool	Fixed::operator>( const Fixed &src ) const
 {
-	return value > src.getRawBits();
+	return (value > src.getRawBits());
 }
 
 bool	Fixed::operator<( const Fixed &src ) const
 {
-	return value < src.getRawBits();
+	return (value < src.getRawBits());
 }
 
 bool	Fixed::operator>=( const Fixed &src ) const
 {
-	return value >= src.getRawBits();
+	return (value >= src.getRawBits());
 }
 
 bool	Fixed::operator<=( const Fixed &src ) const
 {
-	return value <= src.getRawBits();
+	return (value <= src.getRawBits());
 }
 
 bool	Fixed::operator==( const Fixed &src ) const
 {
-	return value == src.getRawBits();
+	return (value == src.getRawBits());
 }
 
 bool	Fixed::operator!=( const Fixed &src ) const
 {
-	return value != src.getRawBits();
+	return (value != src.getRawBits());
 }
 
 Fixed	Fixed::operator+( const Fixed &src ) const
 {
-	return Fixed(toFloat() + src.toFloat());
+	Fixed result;
+	result.setRawBits(value + src.getRawBits());
+	return result;
 }
 
 Fixed	Fixed::operator-( const Fixed &src ) const
 {
-	return Fixed(toFloat() - src.toFloat());
+	Fixed result;
+	result.setRawBits(value - src.getRawBits());
+	return result;
 }
 
 Fixed	Fixed::operator*( const Fixed &src ) const
 {
-	return Fixed(toFloat() * src.toFloat());
+	long long result = static_cast<long long>(value) * src.getRawBits();
+	Fixed tmp;
+	tmp.setRawBits(result >> f_bits);
+	return tmp;
 }
 
 Fixed	Fixed::operator/( const Fixed &src ) const
