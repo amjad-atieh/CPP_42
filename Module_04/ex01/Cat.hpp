@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 20:16:22 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/08 09:23:25 by aatieh           ###   ########.fr       */
+/*   Created: 2025/03/07 20:16:28 by aatieh            #+#    #+#             */
+/*   Updated: 2025/03/08 09:51:30 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include <iostream>
 # include <string>
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class Animal
+class Cat : public Animal
 {
 	public:
 		// Constructors
-		Animal();
-		Animal(const Animal &copy);
-		Animal(std::string type);
+		Cat();
+		Cat(const Cat &copy);
 		
 		// Destructor
-		virtual ~Animal();
+		~Cat();
 		
 		// Operators
-		Animal & operator=(const Animal &assign);
-		
-		// Getters / Setters
-		std::string getType() const;
+		Cat & operator=(const Cat &assign);
 
-		// Member functions
-		void makeSound() const;
-		
+		//getters / setters
+		Brain	*getBrain() const;
+		void	setBrain(Brain assgin);
+
 	private:
-		std::string type;
-		
+
+		Brain *brain;
 };
 
 #endif

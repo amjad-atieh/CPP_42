@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 20:16:22 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/08 09:23:25 by aatieh           ###   ########.fr       */
+/*   Created: 2025/03/08 04:29:39 by aatieh            #+#    #+#             */
+/*   Updated: 2025/03/08 04:35:56 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <iostream>
 # include <string>
 
-class Animal
+class WrongAnimal
 {
 	public:
 		// Constructors
-		Animal();
-		Animal(const Animal &copy);
-		Animal(std::string type);
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal &copy);
+		WrongAnimal(std::string type);
 		
 		// Destructor
-		virtual ~Animal();
+		~WrongAnimal();
 		
 		// Operators
-		Animal & operator=(const Animal &assign);
-		
-		// Getters / Setters
+		WrongAnimal & operator=(const WrongAnimal &assign);
+
+		// Getters
 		std::string getType() const;
 
 		// Member functions
 		void makeSound() const;
 		
 	private:
+
 		std::string type;
-		
 };
 
 #endif

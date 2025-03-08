@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 20:16:22 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/08 09:23:25 by aatieh           ###   ########.fr       */
+/*   Created: 2025/03/08 08:57:00 by aatieh            #+#    #+#             */
+/*   Updated: 2025/03/08 08:57:15 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 # include <string>
 
-class Animal
+# define IDEAS_NUM 100
+
+class Brain
 {
 	public:
 		// Constructors
-		Animal();
-		Animal(const Animal &copy);
-		Animal(std::string type);
+		Brain();
+		Brain(const Brain &copy);
 		
 		// Destructor
-		virtual ~Animal();
+		~Brain();
 		
 		// Operators
-		Animal & operator=(const Animal &assign);
-		
-		// Getters / Setters
-		std::string getType() const;
+		Brain & operator=(const Brain &assign);
 
-		// Member functions
-		void makeSound() const;
-		
+		//getters / setters
+		std::string *getIdeas() const;
+		void setIdeas(const std::string *ideas);
+
 	private:
-		std::string type;
-		
+
+		std::string *ideas;
 };
 
 #endif
