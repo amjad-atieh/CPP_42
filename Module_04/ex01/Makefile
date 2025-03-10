@@ -1,9 +1,9 @@
 OBJS_DIR = obj
 
-SRCS = main Animal Cat Dog WrongAnimal WrongCat Brain
+SRCS = main Animal Cat Dog Brain
 SRCS := $(addsuffix .cpp, $(SRCS))
 
-HEADERS = Dog Cat Animal WrongAnimal WrongCat Brain
+HEADERS = Dog Cat Animal Brain
 HEADERS := $(addsuffix .hpp, $(HEADERS))
 
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
