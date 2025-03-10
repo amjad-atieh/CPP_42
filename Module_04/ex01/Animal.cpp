@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:18 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/07 20:19:43 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/10 19:37:11 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ Animal::~Animal()
 // Operators
 Animal & Animal::operator=(const Animal &assign)
 {
+	std::cout << "\e[0;32mAssignation operator called of Animal\e[0m" << std::endl;
+	if (this == &assign)
+		return *this;
 	type = assign.getType();
 	return *this;
 }

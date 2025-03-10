@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:26 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/08 09:53:16 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/11 01:54:36 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ Cat::Cat() : Animal("Cat")
 Cat::Cat(const Cat &copy) : Animal(copy)
 {
 	std::cout << "\e[0;33mCopy Constructor called of Cat\e[0m" << std::endl;
+	brain = new Brain();
+	*brain = *(copy.brain);
 }
-
 
 // Destructor
 Cat::~Cat()
@@ -32,24 +33,24 @@ Cat::~Cat()
 	delete brain;
 }
 
-
 // Operators
 Cat & Cat::operator=(const Cat &assign)
 {
+	std::cout << "\e[0;32mAssignation operator called of Cat\e[0m" << std::endl;
 	if (this == &assign)
 		return *this;
 	Animal::operator=(assign);
-	Brain::operator=(assign);
+	*brain = *(assign.brain);
 	return *this;
 }
 
 //getters / setters
-Brain	*Cat::getBrain() const
+Brain	&Cat::getBrain() const
 {
-	return Brain;
+	return *brain;
 }
 
 void	Cat::setBrain(Brain assgin)
 {
-	brain = assgin;
+	brain = &assgin;
 }

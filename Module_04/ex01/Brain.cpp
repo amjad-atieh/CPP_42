@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 08:56:57 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/08 09:46:15 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/11 01:48:19 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,12 @@
 Brain::Brain()
 {
 	std::cout << "\e[0;33mDefault Constructor called of Brain\e[0m" << std::endl;
-	void *memory = operator new[] (IDEAS_NUM * sizeof(std::string), std::nothrow);
-	ideas = static_cast<std::string *>(memory);	
-	for (int i = 0; i < IDEAS_NUM; i++)
-		new (&ideas[i]) std::string();
 }
 
 Brain::Brain(const Brain &copy)
 {
-	std::string *copy_ideas = copy.getIdeas();
-	void *memory = operator new[] (IDEAS_NUM * sizeof(std::string), std::nothrow);
-	ideas = static_cast<std::string *>(memory);
-	for (int i = 0; i < IDEAS_NUM; i++)
-		new (&ideas[i]) std::string(copy_ideas[i]);
+	// ideas = copy.getIdeas();
+	this->setIdeas(copy.getIdeas());
 	std::cout << "\e[0;33mCopy Constructor called of Brain\e[0m" << std::endl;
 }
 
@@ -37,7 +30,6 @@ Brain::Brain(const Brain &copy)
 Brain::~Brain()
 {
 	std::cout << "\e[0;31mDestructor called of Brain\e[0m" << std::endl;
-	operator delete[] (ideas);
 }
 
 
@@ -45,9 +37,8 @@ Brain::~Brain()
 Brain & Brain::operator=(const Brain &assign)
 {
 	// ideas = assign.getIdeas();
-	std::string *copy_ideas = assign.getIdeas();
 	for (int i = 0; i < IDEAS_NUM; i++)
-		ideas[i] = copy_ideas[i];
+		setIdea(i, assign.getIdea(i));
 	return *this;
 }
 
@@ -57,7 +48,21 @@ void	Brain::setIdeas(const std::string *ideas)
 		this->ideas[i] = ideas[i];
 }
 
-std::string	*Brain::getIdeas() const
+void	Brain::setIdea(int index, std::string idea)
+{
+	if (index < 0 || index >= IDEAS_NUM)
+		return;
+	ideas[index] = idea;
+}
+
+const std::string	*Brain::getIdeas() const
 {
 	return ideas;
+}
+
+std::string	Brain::getIdea(int index) const
+{
+	if (index < 0 || index >= IDEAS_NUM)
+		throw std::out_of_range("Index out of range");
+	return (ideas[index]);
 }

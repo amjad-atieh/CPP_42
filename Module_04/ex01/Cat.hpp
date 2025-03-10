@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:28 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/08 09:51:30 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/11 00:34:14 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@
 
 class Cat : public Animal
 {
-	public:
+	public: 
 		// Constructors
 		Cat();
 		Cat(const Cat &copy);
-		
+
 		// Destructor
 		~Cat();
-		
+
 		// Operators
 		Cat & operator=(const Cat &assign);
 
 		//getters / setters
-		Brain	*getBrain() const;
+		Brain	&getBrain() const;
 		void	setBrain(Brain assgin);
 
 	private:
