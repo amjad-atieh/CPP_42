@@ -3,6 +3,9 @@ OBJS_DIR = obj
 SRCS = main ClapTrap ScavTrap FragTrap
 SRCS := $(addsuffix .cpp, $(SRCS))
 
+HEADERS = ClapTrap ScavTrap FragTrap
+HEADERS := $(addsuffix .hpp, $(HEADERS))
+
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
 CC = c++
@@ -15,7 +18,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJS_DIR)/%.o: %.cpp | $(OBJS_DIR)
+$(OBJS_DIR)/%.o: %.cpp $(HEADERS) | $(OBJS_DIR)
 			$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJS_DIR):
