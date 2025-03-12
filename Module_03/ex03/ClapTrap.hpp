@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:02:08 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/07 11:42:35 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/12 19:05:26 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # define CLAP_DEF_HITPOINTS 10
 # define CLAP_DEF_ENERGYPOINTS 10
+# define CLAP_DEF_ATTACK 0
 
 class ClapTrap
 {

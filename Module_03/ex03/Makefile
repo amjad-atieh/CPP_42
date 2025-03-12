@@ -3,7 +3,7 @@ OBJS_DIR = obj
 SRCS = main ClapTrap ScavTrap FragTrap DiamondTrap
 SRCS := $(addsuffix .cpp, $(SRCS))
 
-HEADERS = Dog Cat Animal WrongAnimal WrongCat Brain
+HEADERS = ClapTrap ScavTrap FragTrap DiamondTrap
 HEADERS := $(addsuffix .hpp, $(HEADERS))
 
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
