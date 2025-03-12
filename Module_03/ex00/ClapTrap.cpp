@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:02:06 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/07 11:42:35 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/12 18:28:36 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap()
 	name = "common_ClapTrap";
 	hitpoints = DEF_HITPOINTS;
 	energyPoints = DEF_ENERGYPOINTS;
-	attackDamage = 0;
+	attackDamage = DEF_ATTACK;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
@@ -37,7 +37,7 @@ ClapTrap::ClapTrap(std::string name)
 	this->name = name;
 	hitpoints = DEF_HITPOINTS;
 	energyPoints = DEF_ENERGYPOINTS;
-	attackDamage = 0;
+	attackDamage = DEF_ATTACK;
 }
 
 
