@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 07:39:43 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/05 06:11:56 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/12 18:30:03 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Fixed::Fixed( const Fixed &src )
 Fixed::Fixed( const int init_value )
 {
 	std::cout << "Int constructor called\n";
-	value = init_value * (1 << f_bits);
+	value = init_value << f_bits;
 }
 
 Fixed::Fixed( const float init_value )
@@ -78,5 +78,5 @@ float	Fixed::toFloat( void ) const
 
 int	Fixed::toInt( void ) const
 {
-	return (value / (1 << f_bits));
+	return (value >> f_bits);
 }

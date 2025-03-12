@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 07:39:43 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/07 18:11:37 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/12 18:37:48 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,32 +135,34 @@ Fixed	Fixed::operator*( const Fixed &src ) const
 
 Fixed	Fixed::operator/( const Fixed &src ) const
 {
-	return Fixed(toFloat() / src.toFloat());
+	Fixed result;
+	result.setRawBits((value << f_bits) / src.getRawBits());
+	return result;
 }
 
 Fixed	&Fixed::operator++( void )
 {
-	value++;
+	++value;
 	return *this;
 }
 
 Fixed	&Fixed::operator--( void )
 {
-	value--;
+	--value;
 	return *this;
 }
 
 Fixed Fixed::operator++( int )
 {
 	Fixed tmp = *this;
-	++value;
+	value++;
 	return tmp;
 }
 
 Fixed	Fixed::operator--( int )
 {
 	Fixed tmp = *this;
-	--value;
+	value++;
 	return tmp;
 }
 
