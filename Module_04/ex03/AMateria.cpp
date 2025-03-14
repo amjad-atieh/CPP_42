@@ -6,28 +6,28 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:25:32 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/12 06:54:50 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/14 21:35:57 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 // Constructors
-AMateria::AMateria()
+AMateria::AMateria() : type("default")
 {
 	std::cout << "\e[0;33mDefault Constructor called of AMateria\e[0m" << std::endl;
 }
 
-AMateria::AMateria(const AMateria &copy)
+AMateria::AMateria(const AMateria &copy) : type(copy.getType())
 {
 	std::cout << "\e[0;33mCopy Constructor called of AMateria\e[0m" << std::endl;
-	type =  copy.getType();
+	// type =  copy.getType();
 }
 
-AMateria::AMateria(std::string const &type)
+AMateria::AMateria(std::string const &type) : type(type)
 {
 	std::cout << "\e[0;33mCopy Constructor called of AMateria\e[0m" << std::endl;
-	this->type = type;
+	// this->type = type;
 }
 
 // Destructor
@@ -39,7 +39,8 @@ AMateria::~AMateria()
 // Operators
 AMateria & AMateria::operator=(const AMateria &assign)
 {
-	type = assign.getType();
+	// type = assign.getType();
+	(void)assign;
 	return *this;
 }
 
@@ -50,7 +51,7 @@ std::string const &AMateria::getType() const
 }
 
 // Member functions
-virtual void	AMateria::use(ICharacter& target)
+void	AMateria::use(ICharacter& target)
 {
 	if (type == "ice")
 		std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;

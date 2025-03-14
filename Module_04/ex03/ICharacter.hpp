@@ -6,12 +6,14 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 05:51:55 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/12 06:27:56 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/14 21:38:33 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
+
+# include "AMateria.hpp"
 
 class ICharacter
 {

@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 05:41:00 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/12 06:57:29 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/14 17:36:32 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ AMateria* Cure::clone() const
 {
 	AMateria *clone = NULL;
 
-	clone = new Cure(this);
+	try {
+		clone = new Ice(*this);
+	} catch (std::bad_alloc &e) {
+		std::cerr << "Allocation failed: " << e.what() << std::endl;
+		return (NULL);
+	}
 	return (clone);
 }

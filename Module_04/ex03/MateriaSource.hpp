@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 06:18:35 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/12 06:26:48 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/14 21:17:22 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # include <string>
 # include "IMateriaSource.hpp"
 
-class MateriaSource
+# define MAX_MATERIAS 4
+
+class MateriaSource : public IMateriaSource
 {
 	public:
 		// Constructors
@@ -31,7 +33,8 @@ class MateriaSource
 		MateriaSource & operator=(const MateriaSource &assign);
 		
 	private:
-		
+
+		AMateria* materia[MAX_MATERIAS];
 };
 
 #endif

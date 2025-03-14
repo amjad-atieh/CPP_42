@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 05:50:50 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/12 07:05:43 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/14 21:28:44 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 # include <iostream>
 # include <string>
 # include "ICharacter.hpp"
+# include "AMateria.hpp"
 
-class Character
+# define MAX_MATERIAS 4
+
+class Character : public ICharacter
 {
 	public:
 
@@ -31,15 +34,17 @@ class Character
 		// Operators
 		Character & operator=(const Character &assign);
 
+		//getters / setters
+		// AMateria* getMateria(int idx) const;
+		// int getMateriasCount() const;
+
 		//Member functions
-		std::string const & getName() const;
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, ICharacter& target);
 
 	private:
 
 		std::string const	name;
+		AMateria*			materias[MAX_MATERIAS];
+		int					materias_count;
 };
 
 #endif
