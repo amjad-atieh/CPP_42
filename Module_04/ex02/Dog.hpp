@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:34 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/11 00:37:31 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/17 21:27:10 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <stdexcept>
 # include "Animal.hpp"
 # include "Brain.hpp"
 

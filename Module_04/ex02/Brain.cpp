@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 08:56:57 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/11 02:01:41 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/17 21:58:40 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 Brain::Brain()
 {
 	std::cout << "\e[0;33mDefault Constructor called of Brain\e[0m" << std::endl;
+	for (int i = 0; i < IDEAS_NUM; i++)
+		ideas[i] = "";
 }
 
 Brain::Brain(const Brain &copy)
 {
-	this->setIdeas(copy.getIdeas());
+	*this = copy;
 	std::cout << "\e[0;33mCopy Constructor called of Brain\e[0m" << std::endl;
 }
 
@@ -42,7 +44,7 @@ Brain & Brain::operator=(const Brain &assign)
 
 void	Brain::setIdeas(const std::string *ideas)
 {
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < IDEAS_NUM; i++)
 		this->ideas[i] = ideas[i];
 }
 

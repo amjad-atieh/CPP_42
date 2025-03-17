@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:14 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/11 02:19:08 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/17 21:48:08 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main()
 	for(i = 0; i < 6; i++)
 		delete animals[i];
 	delete cat;
-	for (int i = 0; i < 4; i++)
+	for (i = 0; i < 4; i++)
 		std::cout << copy.getBrain().getIdeas()[i] << std::endl;
 	return 0;
 }

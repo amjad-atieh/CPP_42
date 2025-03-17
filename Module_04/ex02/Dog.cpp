@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:31 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/11 00:26:24 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/17 22:05:15 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ Dog::Dog() : Animal("Dog")
 Dog::Dog(const Dog &copy) : Animal(copy)
 {
 	std::cout << "\e[0;33mCopy Constructor called of Dog\e[0m" << std::endl;
+	brain = new Brain();
+	*brain = *(copy.brain);
 }
 
 // Destructor
