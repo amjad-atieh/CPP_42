@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 06:18:33 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/14 21:22:20 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/17 19:50:35 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,35 @@
 // Constructors
 MateriaSource::MateriaSource()
 {
-	std::cout << "\e[0;33mDefault Constructor called of MateriaSource\e[0m" << std::endl;
 	for(int i = 0; i < MAX_MATERIAS; i++)
 		materia[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &copy)
 {
-	(void) copy;
-	std::cout << "\e[0;33mCopy Constructor called of MateriaSource\e[0m" << std::endl;
+	*this = copy;
 }
 
 // Destructor
 MateriaSource::~MateriaSource()
 {
-	std::cout << "\e[0;31mDestructor called of MateriaSource\e[0m" << std::endl;
+	for(int i = 0; i < MAX_MATERIAS; i++)
+		if (materia[i])
+			delete materia[i];
 }
 
 // Operators
 MateriaSource & MateriaSource::operator=(const MateriaSource &assign)
 {
-	(void) assign;
+	for (int i = 0; i < MAX_MATERIAS; i++)
+	{
+		if (materia[i])
+			delete materia[i];
+		if (assign.materia[i])
+			materia[i] = assign.materia[i]->clone();
+		else
+			materia[i] = NULL;
+	}
 	return *this;
 }
 
@@ -43,18 +51,17 @@ MateriaSource & MateriaSource::operator=(const MateriaSource &assign)
 void	MateriaSource::learnMateria(AMateria* m)
 {
 	int	i;
-	for(i = 0; i < MAX_MATERIAS; i++)
-		if (this->materia[i] == NULL)
-			break;
+
+	i = 0;
+	while(i < MAX_MATERIAS && materia[i])
+		i++;
 	if (i < MAX_MATERIAS)
-		this->materia[i] = m;
+		materia[i] = m;
 }
 
 AMateria	*MateriaSource::createMateria(std::string const & type)
 {
-	int	i;
-
-	for(i = 0; i < MAX_MATERIAS; i++)
+	for(int i = 0; i < MAX_MATERIAS; i++)
 		if (this->materia[i] != NULL && this->materia[i]->getType() == type)
 			return (this->materia[i]->clone());
 	return 0;

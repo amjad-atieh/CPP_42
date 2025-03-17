@@ -6,45 +6,65 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 05:50:47 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/14 21:29:38 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/17 19:50:58 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
 // Constructors
-Character::Character() : name("default")
+Character::Character()
 {
-	std::cout << "\e[0;33mDefault Constructor called of Character\e[0m" << std::endl;
-	materias_count = 0;
 	for (int i = 0; i < MAX_MATERIAS; i++)
 		materias[i] = NULL;
+	name = "Default";
+	trashMCount = 0;
+	trashM[0] = NULL;
 }
 
-Character::Character(const Character &copy) : name(copy.getName())
+Character::Character(const Character &copy)
 {
-	std::cout << "\e[0;33mCopy Constructor called of Character\e[0m" << std::endl;
 	*this = copy;
+	trashMCount = 0;
+	trashM[0] = NULL;
 }
 
+Character::Character(std::string name)
+{
+	for (int i = 0; i < MAX_MATERIAS; i++)
+		materias[i] = NULL;
+	this->name = name;
+	trashMCount = 0;
+	trashM[0] = NULL;
+}
 
 // Destructor
 Character::~Character()
 {
-	std::cout << "\e[0;31mDestructor called of Character\e[0m" << std::endl;
-	for (int i = 0; i < materias_count; i++)
-		delete materias[i];
-}
+	int i;
 
+	for (i = 0; i < MAX_MATERIAS; i++)
+		if (materias[i])
+			delete materias[i];
+	for (i = 0; i < trashMCount; i++)
+		if (trashM[i])
+			delete trashM[i];
+}
 
 // Operators
 Character & Character::operator=(const Character &assign)
 {
-	// for (int i = 0; i < materias_count; i++)
-	// 	delete materias[i];
-	// materias_count = assign.getMateriasCount();
-	// for (int i = 0; i < materias_count; i++)
-	// 	materias[i] = assign.getMateria(i)->clone();
+	name = assign.getName();
+	for (int i = 0; i < MAX_MATERIAS; i++)
+		if (materias[i])
+			delete materias[i];
+	for (int i = 0; i < MAX_MATERIAS; i++)
+	{
+		if (assign.getMateria(i))
+			materias[i] = assign.getMateria(i)->clone();
+		else
+			materias[i] = NULL;
+	}
 	return *this;
 }
 
@@ -54,32 +74,44 @@ std::string const	&Character::getName() const
 	return name;
 }
 
-// AMateria*	Character::getMateria(int idx) const
-// {
-// 	if (idx < 0 || idx >= materias_count)
-// 		return NULL;
-// 	return materias[idx];
-// }
-
-// int	Character::getMateriasCount() const
-// {
-// 	return materias_count;
-// }
+AMateria*	Character::getMateria(int idx) const
+{
+	if (idx < 0 || idx >= MAX_MATERIAS)
+		return NULL;
+	return materias[idx];
+}
 
 //Member functions
 void Character::equip(AMateria* m)
 {
 	int i = 0;
 
-	while (i < materias_count && materias[i])
+	while (materias[i] && i < MAX_MATERIAS)
 		i++;
 	if (i < MAX_MATERIAS)
-		materias[materias_count++] = m->clone();
+		materias[i] = m->clone();
 }
 
 void Character::unequip(int idx)
 {
 	if (idx < 0 || idx >= MAX_MATERIAS || !materias[idx])
 		return;
+	if (trashMCount == 99)
+	{
+		for (int i = 0; i < trashMCount; i++)
+			if (trashM[i])
+				delete trashM[i];
+		trashMCount = 0;
+		trashM[0] = NULL;
+	}
+	trashM[trashMCount++] = materias[idx];
+	trashM[trashMCount] = NULL;
 	materias[idx] = NULL;
+}
+
+void Character::use(int idx, ICharacter& target)
+{
+	if (idx < 0 || idx >= MAX_MATERIAS || !materias[idx])
+		return;
+	materias[idx]->use(target);
 }

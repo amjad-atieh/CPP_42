@@ -6,41 +6,37 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:25:32 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/14 21:35:57 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/17 19:51:05 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 // Constructors
-AMateria::AMateria() : type("default")
+AMateria::AMateria()
 {
-	std::cout << "\e[0;33mDefault Constructor called of AMateria\e[0m" << std::endl;
+	type = "default";
 }
 
-AMateria::AMateria(const AMateria &copy) : type(copy.getType())
+AMateria::AMateria(const AMateria &copy)
 {
-	std::cout << "\e[0;33mCopy Constructor called of AMateria\e[0m" << std::endl;
-	// type =  copy.getType();
+	*this = copy;
 }
 
-AMateria::AMateria(std::string const &type) : type(type)
+AMateria::AMateria(std::string const &type)
 {
-	std::cout << "\e[0;33mCopy Constructor called of AMateria\e[0m" << std::endl;
-	// this->type = type;
+	this->type = type;
 }
 
 // Destructor
 AMateria::~AMateria()
 {
-	std::cout << "\e[0;31mDestructor called of AMateria\e[0m" << std::endl;
 }
 
 // Operators
 AMateria & AMateria::operator=(const AMateria &assign)
 {
-	// type = assign.getType();
-	(void)assign;
+	type = assign.getType();
 	return *this;
 }
 

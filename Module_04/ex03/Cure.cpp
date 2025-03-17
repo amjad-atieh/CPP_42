@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 05:41:00 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/14 17:36:32 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/17 19:50:50 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 // Constructors
 Cure::Cure()
 {
-	std::cout << "\e[0;33mDefault Constructor called of Cure\e[0m" << std::endl;
 	type = "cure";
 }
 
 Cure::Cure(const Cure &copy)
 {
-	std::cout << "\e[0;33mCopy Constructor called of Cure\e[0m" << std::endl;
 	type = copy.getType();
 }
 
@@ -29,7 +27,6 @@ Cure::Cure(const Cure &copy)
 // Destructor
 Cure::~Cure()
 {
-	std::cout << "\e[0;31mDestructor called of Cure\e[0m" << std::endl;
 }
 
 
@@ -46,7 +43,7 @@ AMateria* Cure::clone() const
 	AMateria *clone = NULL;
 
 	try {
-		clone = new Ice(*this);
+		clone = new Cure(*this);
 	} catch (std::bad_alloc &e) {
 		std::cerr << "Allocation failed: " << e.what() << std::endl;
 		return (NULL);

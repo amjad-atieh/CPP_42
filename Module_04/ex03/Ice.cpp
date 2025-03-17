@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 05:41:12 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/14 17:36:23 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/17 19:50:44 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 // Constructors
 Ice::Ice()
 {
-	std::cout << "\e[0;33mDefault Constructor called of Ice\e[0m" << std::endl;
 	type = "ice";
 }
 
 Ice::Ice(const Ice &copy)
 {
-	std::cout << "\e[0;33mCopy Constructor called of Ice\e[0m" << std::endl;
 	type = copy.getType();
 }
 
@@ -29,7 +27,6 @@ Ice::Ice(const Ice &copy)
 // Destructor
 Ice::~Ice()
 {
-	std::cout << "\e[0;31mDestructor called of Ice\e[0m" << std::endl;
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:25:35 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/12 06:35:29 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/17 18:20:50 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class AMateria
 {
 	protected:
 
-		std::string const &type;
+		std::string type;
 
 	public:
 
@@ -31,7 +31,7 @@ class AMateria
 		AMateria(std::string const & type);
 
 		// Destructor
-		~AMateria();
+		virtual ~AMateria();
 
 		// Operators
 		AMateria & operator=(const AMateria &assign);

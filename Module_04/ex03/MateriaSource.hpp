@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 06:18:35 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/14 21:17:22 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/17 19:43:37 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,14 @@ class MateriaSource : public IMateriaSource
 		
 		// Operators
 		MateriaSource & operator=(const MateriaSource &assign);
+
+		// Member functions
+		void		learnMateria(AMateria* m);
+		AMateria*	createMateria(std::string const & type);
 		
 	private:
 
-		AMateria* materia[MAX_MATERIAS];
+		AMateria*	materia[MAX_MATERIAS];
 };
 
 #endif
