@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:31 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/17 22:05:15 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/20 17:55:42 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,28 @@ Dog & Dog::operator=(const Dog &assign)
 	if (this == &assign)
 		return *this;
 	Animal::operator=(assign);
-	*brain = *(assign.brain);
+	*brain = *(assign.getBrain());
 	return *this;
 }
 
 //getters / setters
-Brain	&Dog::getBrain() const
+Brain	*Dog::getBrain() const
 {
-	return *brain;
+	return brain;
 }
 
 void	Dog::setBrain(Brain assgin)
 {
-	brain = &assgin;
+	*brain = assgin;
+}
+
+// Member functions
+void	Dog::setIdea(int index, std::string idea)
+{
+	brain->setIdea(index, idea);
+}
+
+std::string	Dog::getIdea(int index) const
+{
+	return brain->getIdea(index);
 }

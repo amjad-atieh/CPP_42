@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 08:56:57 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/17 21:58:40 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/20 17:10:57 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ Brain::Brain()
 
 Brain::Brain(const Brain &copy)
 {
-	*this = copy;
 	std::cout << "\e[0;33mCopy Constructor called of Brain\e[0m" << std::endl;
+	*this = copy;
 }
 
 
@@ -55,14 +55,9 @@ void	Brain::setIdea(int index, std::string idea)
 	ideas[index] = idea;
 }
 
-const std::string	*Brain::getIdeas() const
-{
-	return ideas;
-}
-
 std::string	Brain::getIdea(int index) const
 {
 	if (index < 0 || index >= IDEAS_NUM)
-		throw std::out_of_range("Index out of range");
+		return ("");
 	return (ideas[index]);
 }

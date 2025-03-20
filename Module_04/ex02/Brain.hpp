@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 08:57:00 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/17 21:58:45 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/20 17:11:11 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ class Brain
 		Brain & operator=(const Brain &assign);
 
 		//getters / setters
-		const std::string *getIdeas() const;
 		std::string getIdea(int index) const;
 		void setIdeas(const std::string *ideas);
 		void setIdea(int index, std::string idea);

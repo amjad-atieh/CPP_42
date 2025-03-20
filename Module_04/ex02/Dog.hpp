@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:34 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/17 21:27:10 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/20 15:35:38 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include <string>
-# include <stdexcept>
 # include "Animal.hpp"
 # include "Brain.hpp"
 
@@ -33,8 +32,12 @@ class Dog : public Animal
 		Dog & operator=(const Dog &assign);
 
 		//getters / setters
-		Brain	&getBrain() const; 
+		Brain	*getBrain() const; 
 		void	setBrain(Brain assgin);
+
+		// Member functions
+		void		setIdea(int index, std::string idea);
+		std::string	getIdea(int index) const;
 
 	private:
 

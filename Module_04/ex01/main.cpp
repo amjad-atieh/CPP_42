@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:14 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/11 02:17:22 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/20 17:11:59 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ int	main()
 	for(i = 0; i < 6; i++)
 		animals[i]->makeSound();
 	Cat *cat = new Cat();
-	cat->getBrain().setIdea(0, "I am a cat");
-	cat->getBrain().setIdea(1, "that loves to");
-	cat->getBrain().setIdea(2, "sleep all day");
-	cat->getBrain().setIdea(3, "and play all night");
+	cat->setIdea(0, "I am a cat");
+	cat->setIdea(1, "that loves to");
+	cat->setIdea(2, "sleep all day");
+	cat->setIdea(3, "and play all night");
 	Cat copy(*cat);
 	for(i = 0; i < 6; i++)
 		delete animals[i];
 	delete cat;
-	for (int i = 0; i < 4; i++)
-		std::cout << copy.getBrain().getIdeas()[i] << std::endl;
+	for (i = 0; i < 4; i++)
+		std::cout << copy.getIdea(i) << std::endl;
 	return 0;
 }
