@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:26 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/20 17:54:55 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/20 20:46:34 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,9 @@ void	Cat::setIdea(int index, std::string idea)
 std::string	Cat::getIdea(int index) const
 {
 	return (brain->getIdea(index));
+}
+
+void	Cat::makeSound() const
+{
+	std::cout << "Meow Meow" << std::endl;
 }

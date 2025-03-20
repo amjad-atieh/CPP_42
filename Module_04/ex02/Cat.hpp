@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:28 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/20 15:36:59 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/20 20:46:19 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class Cat : public Animal
 		// Member functions
 		void		setIdea(int index, std::string idea);
 		std::string	getIdea(int index) const;
+		void		makeSound() const;
 
 	private:
 

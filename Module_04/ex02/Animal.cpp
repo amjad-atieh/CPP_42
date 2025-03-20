@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:18 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/11 02:15:38 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/20 20:46:01 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,4 @@ Animal & Animal::operator=(const Animal &assign)
 std::string Animal::getType() const
 {
 	return type;
-}
-
-void	Animal::makeSound() const
-{
-	if (type == "Dog")
-		std::cout << "Woof Woof" << std::endl;
-	else if (type == "Cat")
-		std::cout << "Meow Meow" << std::endl;
-	else
-		std::cout << "confused squeaking" << std::endl;
-}
-
-void	Animal::setBrain(Brain assgin)
-{
-	(void)assgin;
 }

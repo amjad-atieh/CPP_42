@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:31 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/20 17:55:42 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/20 20:46:52 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,9 @@ void	Dog::setIdea(int index, std::string idea)
 std::string	Dog::getIdea(int index) const
 {
 	return brain->getIdea(index);
+}
+
+void	Dog::makeSound() const
+{
+	std::cout << "Woof Woof" << std::endl;
 }
