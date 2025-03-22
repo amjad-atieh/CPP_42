@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:34 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/22 18:23:53 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 20:11:50 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,15 @@ class Dog : public Animal
 		// Constructors
 		Dog();
 		Dog(const Dog &copy);
-		
+
 		// Destructor
 		~Dog();
-		
+
 		// Operators
 		Dog & operator=(const Dog &assign);
 
 		// Member functions
 		void makeSound() const;
-		
-	private:
 		
 };
 

@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:28 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/22 18:24:02 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 20:12:00 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,16 @@ class Cat : public Animal
 		// Constructors
 		Cat();
 		Cat(const Cat &copy);
-		
+
 		// Destructor
 		~Cat();
-		
+
 		// Operators
 		Cat & operator=(const Cat &assign);
 
 		// Member functions
 		void makeSound() const;
 
-	private:
-		
 };
 
 #endif
