@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:26 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/20 17:54:55 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 18:35:05 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ void	Cat::setBrain(Brain assgin)
 }
 
 // Member functions
+void Cat::makeSound() const
+{
+	std::cout << "meow meow" << std::endl;
+}
+
 void	Cat::setIdea(int index, std::string idea)
 {
 	brain->setIdea(index, idea);

@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 04:29:39 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/08 04:35:56 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 18:29:38 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class WrongAnimal
 		WrongAnimal(std::string type);
 		
 		// Destructor
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 		
 		// Operators
 		WrongAnimal & operator=(const WrongAnimal &assign);
@@ -34,7 +34,7 @@ class WrongAnimal
 		std::string getType() const;
 
 		// Member functions
-		void makeSound() const;
+		virtual void makeSound() const;
 		
 	private:
 

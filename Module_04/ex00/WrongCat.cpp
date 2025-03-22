@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 04:29:44 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/08 04:34:37 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 18:33:23 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,10 @@ WrongCat & WrongCat::operator=(const WrongCat &assign)
 {
 	WrongAnimal::operator=(assign);
 	return *this;
+}
+
+// Member functions
+void WrongCat::makeSound() const
+{
+	std::cout << "wrong meow meow" << std::endl;
 }

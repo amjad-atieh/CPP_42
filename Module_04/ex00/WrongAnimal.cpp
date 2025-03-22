@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 04:29:49 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/08 04:36:30 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 18:34:22 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,5 @@ std::string WrongAnimal::getType() const
 // Member functions
 void WrongAnimal::makeSound() const
 {
-	if (type == "WrongCat")
-		std::cout << "WrongCat sound" << std::endl;
-	else
-		std::cout << "WrongAnimal sound" << std::endl;
+	std::cout << "WrongAnimal sound" << std::endl;
 }

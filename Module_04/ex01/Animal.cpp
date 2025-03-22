@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:18 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/10 19:37:11 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 18:34:38 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,5 @@ std::string Animal::getType() const
 
 void	Animal::makeSound() const
 {
-	if (type == "Dog")
-		std::cout << "Woof Woof" << std::endl;
-	else if (type == "Cat")
-		std::cout << "Meow Meow" << std::endl;
-	else
-		std::cout << "confused squeaking" << std::endl;
+	std::cout << "confused squeaking" << std::endl;
 }

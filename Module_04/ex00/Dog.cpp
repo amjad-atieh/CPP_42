@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:31 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/08 04:22:59 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 18:24:11 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,10 @@ Dog & Dog::operator=(const Dog &assign)
 		return *this;
 	Animal::operator=(assign);
 	return *this;
+}
+
+// Member functions
+void Dog::makeSound() const
+{
+	std::cout << "woof woof" << std::endl;
 }

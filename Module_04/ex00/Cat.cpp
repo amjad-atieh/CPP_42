@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:26 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/07 20:16:26 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 18:24:18 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,8 @@ Cat & Cat::operator=(const Cat &assign)
 	return *this;
 }
 
+// Member functions
+void Cat::makeSound() const
+{
+	std::cout << "meow meow" << std::endl;
+}
