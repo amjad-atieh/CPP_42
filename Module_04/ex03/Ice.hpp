@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 05:41:08 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/17 18:20:46 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 19:30:20 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ class Ice : public AMateria
 
 		// Member functions
 		AMateria* clone() const;
-
-	private:
+		void use(ICharacter& target);
 
 };
 

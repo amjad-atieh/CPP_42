@@ -6,21 +6,20 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 05:41:12 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/17 19:50:44 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 19:39:22 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
 // Constructors
-Ice::Ice()
+Ice::Ice() : AMateria("ice")
 {
-	type = "ice";
 }
 
-Ice::Ice(const Ice &copy)
+Ice::Ice(const Ice &copy) : AMateria("ice")
 {
-	type = copy.getType();
+	*this = copy;
 }
 
 
@@ -33,20 +32,17 @@ Ice::~Ice()
 // Operators
 Ice & Ice::operator=(const Ice &assign)
 {
-	type = assign.getType();
+	AMateria::operator=(assign);
 	return *this;
 }
 
 // Member functions
 AMateria* Ice::clone() const
 {
-	AMateria *clone = NULL;
+	return (new Ice(*this));
+}
 
-	try {
-		clone = new Ice(*this);
-	} catch (std::bad_alloc &e) {
-		std::cerr << "Allocation failed: " << e.what() << std::endl;
-		return (NULL);
-	}
-	return (clone);
+void Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

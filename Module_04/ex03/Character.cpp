@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 05:50:47 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/17 19:50:58 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 19:43:47 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void Character::unequip(int idx)
 {
 	if (idx < 0 || idx >= MAX_MATERIAS || !materias[idx])
 		return;
-	if (trashMCount == 99)
+	if (trashMCount + 1 == MAX_TRASH)
 	{
 		for (int i = 0; i < trashMCount; i++)
 			if (trashM[i])

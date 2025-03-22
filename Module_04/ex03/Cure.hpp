@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 05:41:05 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/17 18:20:34 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 19:30:23 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,17 @@ class Cure : public AMateria
 		// Constructors
 		Cure();
 		Cure(const Cure &copy);
-		
+
 		// Destructor
 		~Cure();
-		
+
 		// Operators
 		Cure & operator=(const Cure &assign);
 
 		// Member functions
 		AMateria* clone() const;
-		
-	private:
-		
+		void use(ICharacter& target);
+
 };
 
 #endif

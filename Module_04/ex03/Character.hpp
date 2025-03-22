@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 05:50:50 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/17 19:41:33 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/03/22 19:43:24 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "AMateria.hpp"
 
 # define MAX_MATERIAS 4
+# define MAX_TRASH 5
 
 class Character : public ICharacter
 {
@@ -49,7 +50,7 @@ class Character : public ICharacter
 
 		std::string	name;
 		AMateria*	materias[MAX_MATERIAS];
-		AMateria*	trashM[100];
+		AMateria*	trashM[MAX_TRASH];
 		int			trashMCount;
 };
 
