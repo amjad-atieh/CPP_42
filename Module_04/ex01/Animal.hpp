@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:22 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/22 18:34:32 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/04/19 17:42:02 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Animal
 		// Member functions
 		virtual void makeSound() const;
 		
-	private:
+	protected:
 		std::string type;
 		
 };
