@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:16:14 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/22 18:28:14 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/04/21 18:00:22 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	main()
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	std::cout << wrong->getType() << " " << std::endl;
-	wrong->makeSound();
 	i->makeSound();
 	j->makeSound();
+	wrong->makeSound();
 	meta->makeSound();
 	delete meta;
 	delete j;
