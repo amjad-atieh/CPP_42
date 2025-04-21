@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 05:50:47 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/22 19:43:47 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/04/21 18:37:49 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@ Character::Character()
 		materias[i] = NULL;
 	name = "Default";
 	trashMCount = 0;
-	trashM[0] = NULL;
+	for (int i = 0; i < MAX_TRASH ; i++)
+		trashM[i] = NULL;
 }
 
 Character::Character(const Character &copy)
 {
 	*this = copy;
 	trashMCount = 0;
-	trashM[0] = NULL;
+	for (int i = 0; i < MAX_TRASH ; i++)
+		trashM[i] = NULL;
 }
 
 Character::Character(std::string name)
@@ -35,7 +37,8 @@ Character::Character(std::string name)
 		materias[i] = NULL;
 	this->name = name;
 	trashMCount = 0;
-	trashM[0] = NULL;
+	for (int i = 0; i < MAX_TRASH ; i++)
+		trashM[i] = NULL;
 }
 
 // Destructor
@@ -102,7 +105,8 @@ void Character::unequip(int idx)
 			if (trashM[i])
 				delete trashM[i];
 		trashMCount = 0;
-		trashM[0] = NULL;
+		for (int i = 0; i < MAX_TRASH ; i++)
+			trashM[i] = NULL;
 	}
 	trashM[trashMCount++] = materias[idx];
 	trashM[trashMCount] = NULL;

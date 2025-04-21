@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:25:35 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/22 19:34:32 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/04/21 18:10:43 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ class AMateria
 
 		// Destructor
 		virtual ~AMateria();
-
 		// Operators
 		AMateria & operator=(const AMateria &assign);
 
