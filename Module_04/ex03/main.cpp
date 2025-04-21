@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:24:50 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/17 19:53:12 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/04/21 18:51:43 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@
 
 int main()
 {
+	AMateria* tmp;
 	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+	tmp = new Ice();
+	src->learnMateria(tmp);
+	delete tmp;
+	tmp = new Cure();
+	src->learnMateria(tmp);
+	delete tmp;
 
 	ICharacter* me = new Character("me");
-	AMateria* tmp;
 
 	// Test creating and equipping Ice materia
 	tmp = src->createMateria("ice");

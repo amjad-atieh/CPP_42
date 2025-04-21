@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 06:18:33 by aatieh            #+#    #+#             */
-/*   Updated: 2025/03/17 19:50:35 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/04/21 18:46:10 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	MateriaSource::learnMateria(AMateria* m)
 	while(i < MAX_MATERIAS && materia[i])
 		i++;
 	if (i < MAX_MATERIAS)
-		materia[i] = m;
+		materia[i] = m->clone();
 }
 
 AMateria	*MateriaSource::createMateria(std::string const & type)
