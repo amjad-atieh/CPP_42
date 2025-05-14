@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:03:18 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/09 21:30:52 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/14 16:46:05 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,44 @@
 
 int	main()
 {
-	Bureaucrat a;
-	Bureaucrat b("idiot", 130);
+ std::cout << "=== Test 1: Bureaucrat successfully signs Form ===" << std::endl;
+    try {
+        Bureaucrat john("John", 50);
+        Form taxForm("TaxForm", 100, 150);
+        std::cout << john << std::endl;
+        std::cout << taxForm << std::endl;
 
-	std::cout << a.getName() << "'s grade" << a.getGrade() << std::endl;
-	std::cout << b.getName() << "'s grade" << b.getGrade() << std::endl;
-	b.incrementGrade();
-	Bureaucrat c(b);
-	std::cout << c.getName() << "'s grade" << c.getGrade() << std::endl;
-	try
-	{
-		a.decrementGrade();
-	}
-	catch(const Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	Bureaucrat d("nerd", 1);
-	try
-	{
-		d.incrementGrade();
-	}
-	catch(const Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+        john.signForm(taxForm); // should succeed
+        std::cout << taxForm << std::endl;
+        
+    } catch (std::exception &e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    std::cout << "\n=== Test 2: Bureaucrat fails to sign Form due to low grade ===" << std::endl;
+    try {
+        Bureaucrat lowRank("Joe", 150);
+        Form topSecret("TopSecretForm", 50, 20);
+        std::cout << lowRank << std::endl;
+        std::cout << topSecret << std::endl;
+
+        lowRank.signForm(topSecret); // should throw GradeTooLowException
+    } catch (std::exception &e) {
+        std::cerr << "Caught Exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "\n=== Test 3: Create Form with invalid grade (too high) ===" << std::endl;
+    try {
+        Form invalidForm("ImpossibleForm", 0, 150); // Grade too high (0)
+    } catch (std::exception &e) {
+        std::cerr << "Caught Exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "\n=== Test 4: Create Form with invalid grade (too low) ===" << std::endl;
+    try {
+        Form invalidForm("TooEasyForm", 1, 160); // Grade too low (160)
+    } catch (std::exception &e) {
+        std::cerr << "Caught Exception: " << e.what() << std::endl;
+    }
 	return 0;
 }

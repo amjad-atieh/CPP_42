@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:03:14 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/09 21:42:05 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/11 17:48:16 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ const char* Bureaucrat::GradeTooHighException::what() const throw() {
 // Stream operators
 std::ostream & operator<<(std::ostream &stream, const Bureaucrat &object)
 {
-	stream << object.getName() << ", bureaucrat grade " << object.getGrade() << std::endl;
+	stream << object.getName() << ", bureaucrat grade " << object.getGrade();
 	return stream;
 }

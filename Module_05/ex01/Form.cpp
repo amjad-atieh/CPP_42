@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 21:59:46 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/09 22:04:34 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/14 20:53:50 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ Form::Form(const Form &copy) : _name(copy.getName()), _signeGrade(copy.getSigneG
 	std::cout << "\e[0;33mCopy Constructor called of Form\e[0m" << std::endl;
 }
 
-Form::Form(const std::string name, bool isSigned, const int signeGrade, const int executeGrade) : _name(name), _signeGrade(signeGrade), _executeGrade(executeGrade)
+Form::Form(const std::string name, const int signeGrade, const int executeGrade) : _name(name), _signeGrade(signeGrade), _executeGrade(executeGrade)
 {
-	_isSigned = isSigned;
+	_isSigned = false;
 	checkGrade(_signeGrade);
 	checkGrade(_executeGrade);
 	std::cout << "\e[0;33mFields Constructor called of Form\e[0m" << std::endl;
@@ -84,7 +84,7 @@ void	Form::beSigned(const Bureaucrat &n)
 {
 	if (_isSigned)
 	{
-		std::cout << "this foem is already signed" << std::endl;
+		std::cout << _name << " form was already signed" << std::endl;
 		return ;
 	}
 	if (n.getGrade() <= _signeGrade)
@@ -93,7 +93,7 @@ void	Form::beSigned(const Bureaucrat &n)
 		throw Form::GradeTooLowException();
 }
 
-void	Form::checkGrade(int grade)
+void	Form::checkGrade(const int grade) const
 {
 	if (grade > 150)
 		throw Form::GradeTooLowException();

@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:03:14 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/11 17:48:25 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/14 21:27:24 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	Bureaucrat::decrementGrade()
 	setGrade(grade + 1);
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
@@ -90,6 +90,27 @@ void	Bureaucrat::signForm(Form &form)
 	std::cout << name << " signed " << form.getName() << std::endl;
 }
 
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch(const AForm::FormUnsigned& e)
+	{
+		std::cerr << name << " couldn’t execute " << form.getName()
+			<< " becouse it is not signed!" << std::endl;
+		return ;
+	}
+	catch(const Bureaucrat::GradeTooLowException& e)
+	{
+		std::cerr << name << " couldn’t execute " << form.getName()
+			<< " becouse his grade is to low!" << std::endl;
+		return ;
+	}
+	std::cout << name << " executed " << form.getName() << std::endl;
+}
+
 // Exceptions
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return "Grade is too low!";
@@ -98,6 +119,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
 	return "Grade is too high!";
 }
+
 
 // Stream operators
 std::ostream & operator<<(std::ostream &stream, const Bureaucrat &object)
