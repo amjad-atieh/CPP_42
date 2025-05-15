@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:03:18 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/14 22:01:15 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/15 15:43:29 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main()
 {
     // Test 1
     {
+        std::cout << "\nTest 1: ShrubberyCreationForm" << std::endl;
+        std::cout << "==============================" << std::endl;
         try
         {
             Bureaucrat bob("Bob", 1); // Very high grade
@@ -35,6 +37,8 @@ int	main()
         }
     // Test 2
     {
+        std::cout << "\nTest 2: RobotomyRequestForm" << std::endl;
+        std::cout << "================================" << std::endl;
         try
         {
             Bureaucrat alice("Alice", 1);
@@ -49,6 +53,8 @@ int	main()
     }
     // Test 3
     {
+        std::cout << "\nTest 3: PresidentialPardonForm" << std::endl;
+        std::cout << "=================================" << std::endl;
         try
         {
             Bureaucrat lowGuy("LowGuy", 150);
@@ -63,6 +69,8 @@ int	main()
     }
     // Test 4
     {
+        std::cout << "\nTest 4: PresidentialPardonForm" << std::endl;
+        std::cout << "=================================" << std::endl;
         try
         {
             Bureaucrat signer("Signer", 25);
@@ -79,6 +87,8 @@ int	main()
     }
     // Test 5
     {
+        std::cout << "\nTest 5: RobotomyRequestForm" << std::endl;
+        std::cout << "=================================" << std::endl;
         try
         {
             Bureaucrat bot("Bot", 1);

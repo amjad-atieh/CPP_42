@@ -1,47 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/15 16:14:05 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/15 16:14:06 by aatieh           ###   ########.fr       */
+/*   Created: 2025/05/15 16:12:51 by aatieh            #+#    #+#             */
+/*   Updated: 2025/05/15 16:59:55 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
 # include <iostream>
 # include <string>
 # include "AForm.hpp"
-# include <cstdlib>
-# include <ctime>
-# include <cstdlib>
+# include "ShrubberyCreationForm.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# define FromsNum 3
 
-class RobotomyRequestForm : public AForm
+typedef AForm* (*FormCreator)(const std::string &target);
+
+struct FormEntry {
+	std::string name;
+	FormCreator creator;
+};
+
+class Intern
 {
 	public:
-
 		// Constructors
-		RobotomyRequestForm();
-		RobotomyRequestForm(const RobotomyRequestForm &copy);
-		RobotomyRequestForm(const std::string &target);
+		Intern();
+		Intern(const Intern &copy);
 
 		// Destructor
-		~RobotomyRequestForm();
+		~Intern();
 
 		// Operators
-		RobotomyRequestForm & operator=(const RobotomyRequestForm &assign);
+		Intern & operator=(const Intern &assign);
 
-		// Getters
-		std::string	getTarget() const;
-		// member functions
-		void	execute(Bureaucrat const & executor) const;
+		// Member functions
+		AForm *makeForm(const std::string &formName, const std::string &target) const;
 
 	private:
-		std::string const _target;
+		FormEntry _forms[FromsNum];
 };
 
 #endif

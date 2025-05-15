@@ -1,46 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/15 16:14:02 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/15 16:14:03 by aatieh           ###   ########.fr       */
+/*   Created: 2025/05/15 16:13:02 by aatieh            #+#    #+#             */
+/*   Updated: 2025/05/15 16:13:03 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
 # include <string>
 # include "AForm.hpp"
-# include <fstream>
-# include <iostream>
+# include <cstdlib>
+# include <ctime>
+# include <cstdlib>
 
-class ShrubberyCreationForm : public AForm
+class RobotomyRequestForm : public AForm
 {
 	public:
+
 		// Constructors
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const ShrubberyCreationForm &copy);
-		ShrubberyCreationForm(const std::string target);
+		RobotomyRequestForm();
+		RobotomyRequestForm(const RobotomyRequestForm &copy);
+		RobotomyRequestForm(const std::string &target);
 
 		// Destructor
-		~ShrubberyCreationForm();
+		~RobotomyRequestForm();
+
+		// Operators
+		RobotomyRequestForm & operator=(const RobotomyRequestForm &assign);
 
 		// Getters
 		std::string	getTarget() const;
-
-		// Operators
-		ShrubberyCreationForm & operator=(const ShrubberyCreationForm &assign);
-
-		// Exceptions
-		class GradeTooHighException : public std::exception {
-			virtual const char* what() const throw();
-		};
-
 		// member functions
 		void	execute(Bureaucrat const & executor) const;
 

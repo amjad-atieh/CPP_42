@@ -1,45 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/15 16:14:02 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/15 16:14:03 by aatieh           ###   ########.fr       */
+/*   Created: 2025/05/15 16:12:58 by aatieh            #+#    #+#             */
+/*   Updated: 2025/05/15 16:12:59 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 # include <iostream>
 # include <string>
 # include "AForm.hpp"
-# include <fstream>
-# include <iostream>
 
-class ShrubberyCreationForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 	public:
+
 		// Constructors
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const ShrubberyCreationForm &copy);
-		ShrubberyCreationForm(const std::string target);
+		PresidentialPardonForm();
+		PresidentialPardonForm(const PresidentialPardonForm &copy);
+		PresidentialPardonForm(const std::string &target);
 
 		// Destructor
-		~ShrubberyCreationForm();
-
-		// Getters
-		std::string	getTarget() const;
+		~PresidentialPardonForm();
 
 		// Operators
-		ShrubberyCreationForm & operator=(const ShrubberyCreationForm &assign);
+		PresidentialPardonForm & operator=(const PresidentialPardonForm &assign);
 
-		// Exceptions
-		class GradeTooHighException : public std::exception {
-			virtual const char* what() const throw();
-		};
+		// Getters
+		std::string getTarget() const;
 
 		// member functions
 		void	execute(Bureaucrat const & executor) const;
