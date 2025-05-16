@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:03:14 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/15 16:14:21 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/16 17:31:37 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,22 @@ void	Bureaucrat::decrementGrade()
 
 void	Bureaucrat::signForm(AForm &form)
 {
-	form.beSigned(*this);
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch(const AForm::GradeTooLowException& e)
+	{
+		std::cerr << name << " couldn’t sign " << form.getName()
+			<< " becouse his grade is to low!" << std::endl;
+		return ;
+	}
+	catch(const AForm::FormAlreadySigned& e)
+	{
+		std::cerr << name << " couldn’t sign " << form.getName()
+			<< " becouse it was already signed" << std::endl;
+		return ;
+	}
 	std::cout << name << " signed " << form.getName() << std::endl;
 }
 

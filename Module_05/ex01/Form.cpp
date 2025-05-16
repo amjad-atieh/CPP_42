@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 21:59:46 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/14 20:53:50 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/16 17:25:27 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,12 @@ const char * Form::GradeTooHighException::what() const throw()
 {
 	return "grade higher than possible";
 }
+
+const char * Form::FormAlreadySigned::what() const throw()
+{
+	return "Signed form cannot be signed again";
+}
+
 const char * Form::GradeTooLowException::what() const throw()
 {
 	return "grade lower than possible";
@@ -83,11 +89,8 @@ const char * Form::GradeTooLowException::what() const throw()
 void	Form::beSigned(const Bureaucrat &n)
 {
 	if (_isSigned)
-	{
-		std::cout << _name << " form was already signed" << std::endl;
-		return ;
-	}
-	if (n.getGrade() <= _signeGrade)
+		throw Form::FormAlreadySigned();
+	else if (n.getGrade() <= _signeGrade)
 		_isSigned = true;
 	else
 		throw Form::GradeTooLowException();
@@ -105,7 +108,7 @@ void	Form::checkGrade(const int grade) const
 // Stream operators
 std::ostream & operator<<(std::ostream &stream, const Form &object)
 {
-	stream << " the " << object.getName() << " form was not signed yet and the grade you need to sign it is at lease " << object.getSigneGrade() << " and you need to be at least grade " << object.getExecuteGrade() << " to execute it" << std::endl;
+	stream << "the " << object.getName() << " form was not signed yet and the grade you need to sign it is at lease " << object.getSigneGrade() << " and you need to be at least grade " << object.getExecuteGrade() << " to execute it" << std::endl;
 	return stream;
 }
 

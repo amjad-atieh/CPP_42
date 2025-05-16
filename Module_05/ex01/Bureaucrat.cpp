@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:03:14 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/11 17:48:25 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/16 17:23:43 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,16 @@ void	Bureaucrat::signForm(Form &form)
 	{
 		form.beSigned(*this);
 	}
-	catch(const Bureaucrat::GradeTooLowException& e)
+	catch(const Form::GradeTooLowException& e)
 	{
 		std::cerr << name << " couldn’t sign " << form.getName()
 			<< " becouse his grade is to low!" << std::endl;
+		return ;
+	}
+	catch(const Form::FormAlreadySigned& e)
+	{
+		std::cerr << name << " couldn’t sign " << form.getName()
+			<< " becouse it was already signed" << std::endl;
 		return ;
 	}
 	std::cout << name << " signed " << form.getName() << std::endl;

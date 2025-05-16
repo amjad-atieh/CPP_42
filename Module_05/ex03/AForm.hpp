@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 16:13:26 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/15 16:13:31 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/16 17:33:20 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ class AForm
 			virtual const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception {
+			virtual const char* what() const throw();
+		};
+		class FormAlreadySigned : public std::exception {
 			virtual const char* what() const throw();
 		};
 		class FormUnsigned : public std::exception {

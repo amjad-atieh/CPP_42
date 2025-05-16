@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 16:13:17 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/15 16:13:22 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/16 17:35:29 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,11 @@ const char * AForm::GradeTooLowException::what() const throw()
 	return "grade is too low";
 }
 
+const char * AForm::FormAlreadySigned::what() const throw()
+{
+	return "Signed form cannot be signed again";
+}
+
 const char * AForm::FormUnsigned::what() const throw()
 {
 	return "unasgined forms cannot be excuted";
@@ -90,53 +95,12 @@ const char * AForm::FormUnsigned::what() const throw()
 void	AForm::beSigned(const Bureaucrat &n)
 {
 	if (_isSigned)
-	{
-		std::cout << _name << " form was already signed" << std::endl;
-		return ;
-	}
-	if (n.getGrade() <= _signeGrade)
+		throw AForm::FormAlreadySigned();
+	else if (n.getGrade() <= _signeGrade)
 		_isSigned = true;
 	else
 		throw AForm::GradeTooLowException();
 }
-
-// bool	AForm::excuteFrom(const Bureaucrat &n)
-// {
-// 	if (!_isSigned)
-// 	{
-// 		std::cerr << _name << " form needs to be signed before it is excuted" << std::endl;
-// 		return (false);
-// 	}
-// 	else if (n.getGrade() <= _executeGrade)
-// 	{
-// 		std::cout << n.getName() << "excuted" << _name << " form successfully" << std::endl;
-// 		return (true);
-// 	} 
-// 	else
-// 	{
-// 		std::cerr << n.getName() << "'s grade is too low to sign " << _name << " form" << std::endl;
-// 		return (false);
-// 	}
-// }
-
-// bool	Form::excuteFrom(const Bureaucrat &n)
-// {
-// 	if (!_isSigned)
-// 	{
-// 		std::cerr << _name << " form needs to be signed before it is excuted" << std::endl;
-// 		return (false);
-// 	}
-// 	else if (n.getGrade() <= _executeGrade)
-// 	{
-// 		std::cout << n.getName() << "excuted" << _name << " form successfully" << std::endl;
-// 		return (true);
-// 	} 
-// 	else
-// 	{
-// 		std::cerr << n.getName() << "'s grade is too low to sign " << _name << " form" << std::endl;
-// 		return (false);
-// 	}
-// }
 
 void	AForm::checkGrade(const int grade) const
 {
@@ -157,7 +121,7 @@ void	AForm::excutableCheck(Bureaucrat const & executor) const
 // Stream operators
 std::ostream & operator<<(std::ostream &stream, const AForm &object)
 {
-	stream << " the " << object.getName() << " form was not signed yet and the grade you need to sign it is at lease " << object.getSigneGrade() << " and you need to be at least grade " << object.getExecuteGrade() << " to execute it" << std::endl;
+	stream << "the " << object.getName() << " form was not signed yet and the grade you need to sign it is at lease " << object.getSigneGrade() << " and you need to be at least grade " << object.getExecuteGrade() << " to execute it" << std::endl;
 	return stream;
 }
 

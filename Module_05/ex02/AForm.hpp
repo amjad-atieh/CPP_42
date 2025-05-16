@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 16:14:23 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/15 16:14:27 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/16 17:26:49 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,11 @@ class AForm
 		class FormUnsigned : public std::exception {
 			virtual const char* what() const throw();
 		};
+		class FormAlreadySigned : public std::exception {
+			virtual const char* what() const throw();
+		};
 
-		// member functions
+		// Member functions
 		void			beSigned(const Bureaucrat &n);
 		virtual void	execute(Bureaucrat const & executor) const = 0;
 	

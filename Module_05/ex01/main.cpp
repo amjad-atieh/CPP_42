@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:03:18 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/14 16:46:05 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/16 17:24:55 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main()
 
         john.signForm(taxForm); // should succeed
         std::cout << taxForm << std::endl;
+        john.signForm(taxForm);
         
     } catch (std::exception &e) {
         std::cerr << "Error: " << e.what() << std::endl;
