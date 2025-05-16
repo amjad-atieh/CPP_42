@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 16:14:29 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/16 17:29:22 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/16 19:20:59 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,18 @@ void	AForm::excutableCheck(Bureaucrat const & executor) const
 // Stream operators
 std::ostream & operator<<(std::ostream &stream, const AForm &object)
 {
-	stream << "the " << object.getName() << " form was not signed yet and the grade you need to sign it is at lease " << object.getSigneGrade() << " and you need to be at least grade " << object.getExecuteGrade() << " to execute it" << std::endl;
+	if (!object.getSigned())
+	{
+		stream << "the " << object.getName() << " form was not signed yet and " <<
+			"the grade you need to sign it is at lease " << object.getSigneGrade()
+			<< " and you need to be at least grade " << object.getExecuteGrade()
+			<< " to execute it";
+	}
+	else 
+		stream << "the " << object.getName() << " form was signed and" <<
+			" the grade you needed to sign it was at lease " << object.getSigneGrade()
+			<< " and you need to be at least grade " << object.getExecuteGrade()
+			<< " to execute it";
 	return stream;
 }
 
