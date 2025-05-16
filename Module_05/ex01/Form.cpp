@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 21:59:46 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/16 19:21:03 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/16 19:22:19 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,4 +121,4 @@ std::ostream & operator<<(std::ostream &stream, const Form &object)
 			<< " and you need to be at least grade " << object.getExecuteGrade()
 			<< " to execute it";
 	return stream;
-
+}
