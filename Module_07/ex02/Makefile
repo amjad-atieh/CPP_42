@@ -3,7 +3,7 @@ OBJS_DIR = obj
 SRCS = main
 SRCS := $(addsuffix .cpp, $(SRCS))
 
-HEADERS = Array.tpp
+HEADERS = Array.hpp
 
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
