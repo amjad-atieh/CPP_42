@@ -3,15 +3,14 @@ OBJS_DIR = obj
 SRCS = main
 SRCS := $(addsuffix .cpp, $(SRCS))
 
-HEADERS = Array
-HEADERS := $(addsuffix .hpp, $(HEADERS))
+HEADERS = Array.tpp
 
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Iterator
+NAME = Array
 
 all: $(NAME)
 
