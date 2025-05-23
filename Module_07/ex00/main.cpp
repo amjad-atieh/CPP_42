@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:22:11 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/21 20:29:55 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/23 17:13:08 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,6 @@ struct test
 {
 	int example;
 };
-
-template <typename T>
-void	swap(T &a, T &b)
-{
-	T tmp;
-
-	tmp = a;
-	a = b;
-	b = tmp;
-}
-
-template <typename T>
-T	min(T &a, T &b)
-{
-	if (a < b)
-		return a;
-	else
-		return b;
-}
-
-template <typename T>
-T	max(T &a, T &b)
-{
-	if (a > b)
-		return a;
-	else
-		return b;
-}
 
 int main( void ) {
 

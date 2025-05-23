@@ -10,7 +10,7 @@ OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Array
+NAME = array
 
 all: $(NAME)
 

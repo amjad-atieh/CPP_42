@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:22:11 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/22 17:53:56 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/23 17:10:02 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,6 @@ void addOne(T &a) {
 template <typename T>
 void print(T &a) {
     std::cout << a << " ";
-}
-
-// === iter template ===
-template <typename T>
-void iter(T *arr, unsigned len, void (*func)(T &)) {
-    for (unsigned i = 0; i < len; i++)
-        func(arr[i]);
 }
 
 // === Specialized addOne for std::string ===

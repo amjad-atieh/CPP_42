@@ -6,9 +6,12 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 17:57:19 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/22 19:42:35 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/23 17:08:59 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ARRAY_TPP
+# define ARRAY_TPP
 
 # include <iostream>
 # include <string>
@@ -71,3 +74,5 @@ unsigned int	Array<T>::size() const
 {
 	return _size;
 }
+
+#endif
