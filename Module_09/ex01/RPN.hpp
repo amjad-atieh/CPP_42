@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 19:26:14 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/24 23:51:43 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/05/25 03:12:13 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class RPN
 		RPN & operator=(const RPN &assign);
 
 		// Member functions
-		int	doMath(char *input);
+		int	doMath(const char *input);
 
 		// Exceptions
 		class InvalidChar : public std::exception
@@ -46,7 +46,6 @@ class RPN
 
 	private:
 		std::stack<int>		_num;
-		// std::stack<char>	_op;
 };
 
 #endif
