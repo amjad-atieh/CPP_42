@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:14:54 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/09 17:39:16 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/09 18:13:40 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class ScalarConverter
 {
-	public:
+	private:
 		// Constructors
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);
@@ -28,7 +28,8 @@ class ScalarConverter
 		
 		// Operators
 		ScalarConverter & operator=(const ScalarConverter &assign);
-
+	
+	public:
 		// Memeber function
 		static void convert(const std::string &input);
 		
