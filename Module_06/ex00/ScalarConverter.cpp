@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:14:56 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/16 22:01:57 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/09 17:39:00 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,11 @@ bool safeAtoi(const char* str, int& out) {
     char* end;
     long val = std::strtol(str, &end, 10);
 
-    if (errno == ERANGE || val > INT_MAX || val < INT_MIN)
+    if ((errno == ERANGE || val > INT_MAX || val < INT_MIN)
+		&& (*end == '\0' || (*end == 'f' && *(end + 1) == '\0')))
+	{
         return false;
+	}
 
     out = static_cast<int>(val);
     return true;
@@ -84,7 +87,7 @@ static void printChar(const std::string &input)
 	
 	if (input.size() == 1 &&  !std::isdigit(input[0]))
 		std::cout << "char: " << input[0] << std::endl;
-	else if (allNum(input) == true && safeAtoi(input.c_str(), r))
+	else if (allNum(input) && safeAtoi(input.c_str(), r))
 	{
 		if ((r >= 0 && r <= 31 && !std::isspace(r)) || r == 127)
 			std::cout << "char: Non displayable" << std::endl;
@@ -101,7 +104,7 @@ static void printInt(const std::string &input)
 {
 	int	r;
 	
-	if (allNum(input) == true && safeAtoi(input.c_str(), r))
+	if (allNum(input) && safeAtoi(input.c_str(), r))
 	{
 		std::cout << "int: " << r << std::endl;
 	}
@@ -109,37 +112,47 @@ static void printInt(const std::string &input)
 		std::cout << "int: impossible" << std::endl;
 }
 
-static bool  pseudoLiteral(const std::string &input)
+static int count_decimal_digits(const std::string& input)
 {
-	size_t	i;
-
-	i = 0;
-	if (input.size() < 3)
-		return false;
-	if (input[i] == '-' || input[i] == '+')
-		i++;
-	if (input.compare(i, 4, "nan") == 0 || input.compare(i, 5, "nanf") == 0
-		|| input.compare(i, 4, "inf") == 0 || input.compare(i, 5, "inff") == 0)
-		return true;
-	else
-		return false;
+	size_t	len;
+    std::string::size_type dot_pos = input.find('.');
+    if (dot_pos == std::string::npos)
+	{
+        return 0;
+	}
+	len = input.length() - 1;
+	while (input.at(len) == '0' && len > dot_pos)
+	{
+		len--;
+	}
+    // Count digits after the dot
+    return len - dot_pos;
 }
 
 static void printFloatDouble(const std::string &input)
 {
 	double	r;
+	float	f;
+	char	*end;
+	int		digits;
 
-	if (allNum(input) == true || pseudoLiteral(input) == true)
+	f = strtof(input.c_str(), &end);
+	if (*end == '\0' || (*end == 'f' && *(end + 1) == '\0'))
 	{
-		r = std::atof(input.c_str());
-		if (std::floor(r) != r)
+		digits = count_decimal_digits(input);
+		r = strtod(input.c_str(), &end);
+		if (digits > 0)
 		{
-			std::cout << "float: " << static_cast <float>(r) << "f" << std::endl;
-			std::cout << "double: " << r << std::endl;
+			std::cout << "float: " << std::fixed
+				<< std::setprecision(digits + 1)
+				<< f << "f" << std::endl;
+			std::cout << "double: " << std::fixed
+				<< std::setprecision(digits)
+				<< r << std::endl;
 		}
 		else
 		{
-			std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast <float>(r) << "f" << std::endl;
+			std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 			std::cout << "double: " << r << std::endl;
 		}
 	}

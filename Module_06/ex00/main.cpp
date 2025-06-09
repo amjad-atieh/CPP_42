@@ -6,12 +6,14 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:15:03 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/16 17:39:34 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/09 17:37:03 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <string>
+#include <cstring>
+
 
 int	main(int ac, char **av)
 {
