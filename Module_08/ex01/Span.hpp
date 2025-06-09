@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:37:30 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/23 18:24:26 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/09 21:06:27 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Span
 		const std::vector<int>	&getContent() const;
 
 		// Member functions
-		void	addNumbiteratorer(const int num);
+		void	addNumber(const int num);
 		int		shortestSpan();
 		int		longestSpan();
 		template <typename Iter>
