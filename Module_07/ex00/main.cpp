@@ -6,17 +6,12 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:22:11 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/23 17:13:08 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/10 16:25:24 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "whatever.hpp"
 #include <iostream>
-
-struct test
-{
-	int example;
-};
 
 int main( void ) {
 
@@ -35,13 +30,6 @@ std::string d = "chaine2";
 std::cout << "c = " << c << ", d = " << d << std::endl;
 std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
 std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-
-// struct test e;
-// struct test f;
-
-// ::swap(e, f);
-// ::min( e, f );
-// ::max( f, e );
 
 return 0;
 	

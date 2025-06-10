@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:22:11 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/22 19:30:38 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/10 16:32:35 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main()
     Array<int> arr4;
     arr4 = arr2;
     std::cout << "arr4 was assigned from arr2" << std::endl;
-    arr2[0] = 100; // Modify arr2 to check if arr4 is independent
+    arr2[0] = 100;
     std::cout << "changed arr2[0] to " << arr2[0] << std::endl;
     std::cout << "arr4: ";
     for (unsigned int i = 0; i < arr4.size(); ++i)

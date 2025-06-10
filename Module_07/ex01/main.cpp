@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:22:11 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/23 17:10:02 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/10 16:31:01 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,16 @@
 #include <iostream>
 #include <string>
 
-// === Generic addOne for numeric types ===
 template <typename T>
 void addOne(T &a) {
     ++a;
 }
 
-// === Generic print function ===
 template <typename T>
 void print(T &a) {
     std::cout << a << " ";
 }
 
-// === Specialized addOne for std::string ===
 void addOne(std::string &s) {
     s += "+";
 }
