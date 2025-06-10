@@ -4,7 +4,7 @@ CLASSES = Serialization
 SRCS = main $(CLASSES)
 SRCS := $(addsuffix .cpp, $(SRCS))
 
-HEADERS = $(CLASSES)
+HEADERS = $(CLASSES) Data
 HEADERS := $(addsuffix .hpp, $(HEADERS))
 
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
