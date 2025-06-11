@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:14:56 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/10 16:10:28 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/11 20:01:39 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,20 @@ ScalarConverter & ScalarConverter::operator=(const ScalarConverter &assign)
 }
 
 // Helper functions
-bool safeAtoi(const char* str, int& out) {
+static void	printOneChar(char c)
+{
+	if ((c >= 0 && c <= 31 && !std::isspace(c)) || c == 127)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: " << c << std::endl;
+}
+static bool safeAtoi(const char* str, int& out)
+{
     errno = 0;
     char* end;
     long val = std::strtol(str, &end, 10);
 
-    if ((errno == ERANGE || val > INT_MAX || val < INT_MIN)
-		&& (*end == '\0' || (*end == 'f' && *(end + 1) == '\0')))
+    if (errno == ERANGE || val > INT_MAX || val < INT_MIN || *end != '\0')
 	{
         return false;
 	}
@@ -57,115 +64,122 @@ bool safeAtoi(const char* str, int& out) {
     return true;
 }
 
-static bool allNum(const std::string &input)
-{
-	size_t	i;
-	int	comma;
-
-	i = 0;
-	comma = 0;
-	if (input.empty())
-		return false;
-	if (input[i] == '-')
-		i++;
-	while (i < input.size() && (std::isdigit(input[i]) || input[i] == '.'))
-	{
-		if (input[i] == '.')
-			comma++;
-		i++;
-	}
-	if (comma <= 1 && (i == input.size() || (i == input.size() - 1 && input[i] == 'f')))
-		return true;
-	else
-		return false;
-}
-
-static void printChar(const std::string &input)
-{
-	int	r;
-	
-	if (input.size() == 1 &&  !std::isdigit(input[0]))
-		std::cout << "char: " << input[0] << std::endl;
-	else if (allNum(input) && safeAtoi(input.c_str(), r))
-	{
-		if ((r >= 0 && r <= 31 && !std::isspace(r)) || r == 127)
-			std::cout << "char: Non displayable" << std::endl;
-		else if (r < 0 || r > 255)
-			std::cout << "char: impossible" << std::endl;
-		else
-			std::cout << "char: " << static_cast <char>(r) << std::endl;
-	}
-	else
-		std::cout << "char: impossible" << std::endl;
-}
-
-static void printInt(const std::string &input)
-{
-	int	r;
-	
-	if (allNum(input) && safeAtoi(input.c_str(), r))
-	{
-		std::cout << "int: " << r << std::endl;
-	}
-	else
-		std::cout << "int: impossible" << std::endl;
-}
-
 static int count_decimal_digits(const std::string& input)
 {
 	size_t	len;
     std::string::size_type dot_pos = input.find('.');
     if (dot_pos == std::string::npos)
 	{
-        return 0;
+        return 1;
 	}
 	len = input.length() - 1;
-	while (input.at(len) == '0' && len > dot_pos)
+	if (input[len] == 'f')
+		len--;
+	while (input[len] == '0' && len > dot_pos)
 	{
 		len--;
 	}
-    // Count digits after the dot
-    return len - dot_pos;
+	if (len - dot_pos > 0)
+    	return len - dot_pos;
+	else
+		return 1;
 }
 
-static void printFloatDouble(const std::string &input)
+static bool printChar(const std::string &input)
 {
-	double	r;
-	float	f;
-	char	*end;
-	int		digits;
+	char	c;
 
-	f = strtof(input.c_str(), &end);
-	if (*end == '\0' || (*end == 'f' && *(end + 1) == '\0'))
+	if (input.size() == 1 && !isdigit(input[0]))
 	{
-		digits = count_decimal_digits(input);
-		r = strtod(input.c_str(), &end);
-		if (digits > 0)
-		{
-			std::cout << "float: " << std::fixed
-				<< std::setprecision(digits + 1)
-				<< f << "f" << std::endl;
-			std::cout << "double: " << std::fixed
-				<< std::setprecision(digits)
-				<< r << std::endl;
-		}
-		else
-		{
-			std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
-			std::cout << "double: " << r << std::endl;
-		}
+		std::cout << "From: " <<  "char" << std::endl;
+		c = input[0];
+		printOneChar(c);
+		std::cout << "int: " << static_cast<int> (c) << std::endl;
+		std::cout << "float: " << std::fixed <<  std::setprecision(1) << static_cast<float> (c) << 'f' << std::endl;
+		std::cout << "double: " << static_cast<double> (c) << std::endl;
+		return	true;
 	}
 	else
+		return	false;
+}
+
+static bool printInt(const std::string &input)
+{
+	int	i;
+
+	if (safeAtoi(input.c_str(), i))
 	{
-		std::cout << "float: impossible" << std::endl;
-		std::cout << "double: impossible" << std::endl;
+		std::cout << "From: " <<  "int" << std::endl;
+		printOneChar(static_cast<char> (i));
+		std::cout << "int: " << i << std::endl;
+		std::cout << "float: " << std::fixed <<  std::setprecision(1) << static_cast<float> (i) << 'f' << std::endl;
+		std::cout << "double: " << static_cast<double> (i) << std::endl;
+		return true;
 	}
+	return	false;
+}
+
+static bool	printDouble(const std::string &input)
+{
+	int		digits;
+	char	*end;
+	double	d;
+
+	digits = count_decimal_digits(input);
+	d = strtod(input.c_str(), &end);
+	if (*end == '\0')
+	{
+		std::cout << "From: " <<  "double" << std::endl;
+		printOneChar(static_cast<char> (d));
+		std::cout << "int: " << static_cast<int> (d) << std::endl;
+		std::cout << "float: " << std::fixed  << std::setprecision(digits) << static_cast<float> (d) << 'f' << std::endl;
+		std::cout << "double: " << d << std::endl;
+		return	true;
+	}
+	return false;
+}
+
+static bool	printFloat(const std::string &input)
+{
+	int		digits;
+	char	*end;
+	float	f;
+
+	digits = count_decimal_digits(input);
+	f = strtof(input.c_str(), &end);
+	if (*end == 'f' && *(end + 1) == '\0')
+	{
+		std::cout << "From: " <<  "float" << std::endl;
+		printOneChar(static_cast<char> (f));
+		std::cout << "int: " << static_cast<int> (f) << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(digits) << f << 'f' << std::endl;
+		std::cout << "double: " << static_cast<double> (f) << std::endl;
+		return true;
+	}
+	return false;
+}
+
+static void	impossible()
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: impossible" << std::endl;
+	std::cout << "double: impossible" << std::endl;
 }
 
 // Memeber function
 void ScalarConverter::convert(const std::string &input)
 {
-	printChar(input);
-	printInt(input);
-	printFloatDouble(input);
+	if (input.size() == 0)
+	{
+		impossible();
+	}
+	else if (printChar(input) || printInt(input) || printDouble(input) || printFloat(input))
+	{
+		return;
+	}
+	else
+	{
+		impossible();
+	}
 }
