@@ -6,14 +6,13 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:14:56 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/09 17:39:00 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/10 16:10:28 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <cstdlib>
 #include <iomanip>
-#include <cmath>
 #include <limits.h>
 #include <errno.h>
 

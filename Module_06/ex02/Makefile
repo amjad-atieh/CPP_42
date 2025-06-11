@@ -1,9 +1,9 @@
 OBJS_DIR = obj
 
-SRCS = main 
+SRCS = main gen_iden
 SRCS := $(addsuffix .cpp, $(SRCS))
 
-HEADERS = A B C Base
+HEADERS = A B C Base gen_iden
 HEADERS := $(addsuffix .hpp, $(HEADERS))
 
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
