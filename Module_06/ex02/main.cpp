@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 17:57:40 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/09 21:04:02 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/11 14:41:26 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ Base * generate(void)
 
 void identify(Base* p)
 {
-	if (dynamic_cast<A*>(p))
+	if (p == NULL)
+		std::cout << "Null pointer provided." << std::endl;
+	else if (dynamic_cast<A*>(p))
 		std::cout << "Class A" << std::endl;
 	else if (dynamic_cast<B*>(p))
 		std::cout << "Class B" << std::endl;
@@ -45,15 +47,37 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-	Base *d = &p;
-	if (dynamic_cast<A*>(d))
+	try
+	{
+		dynamic_cast<A&>(p);
 		std::cout << "Class A" << std::endl;
-	else if (dynamic_cast<B*>(d))
+		return;
+	}
+	catch(...)
+	{
+	}
+
+	try
+	{
+		dynamic_cast<B&>(p);
 		std::cout << "Class B" << std::endl;
-	else if (dynamic_cast<C*>(d))
+		return;
+	}
+	catch(...)
+	{
+	}
+
+	try
+	{
+		dynamic_cast<C&>(p);
 		std::cout << "Class C" << std::endl;
-	else
-		std::cout << "Unknown class" << std::endl;
+		return;
+	}
+	catch(...)
+	{
+	}
+
+	std::cout << "Unknown class" << std::endl;
 }
 
 int main()
