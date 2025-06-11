@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:22:11 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/10 16:31:01 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/11 20:49:06 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,65 @@
 #include <iostream>
 #include <string>
 
-template <typename T>
-void addOne(T &a) {
+
+
+void addOneInt(int &a)
+{
+	++a;
+}
+
+void addOneFloat(float &a)
+{
     ++a;
 }
 
-template <typename T>
-void print(T &a) {
+void printString(const std::string &a) 
+{
     std::cout << a << " ";
 }
 
-void addOne(std::string &s) {
+void addOneString(std::string &s)
+{
     s += "+";
 }
 
-int main() {
+void printInt(const int &content)
+{
+	std::cout << " " << content;
+}
+
+void printFloat(const float &content)
+{
+	std::cout << " " << content << "f";
+}
+
+int main()
+{
     // === Test with int ===
     int arr1[] = {1, 2, 3, 4, 5};
     std::cout << "Original int array: ";
-    iter(arr1, 5, print);
+    iter(arr1, 5, printInt);
     std::cout << "\nAfter addOne: ";
-    iter(arr1, 5, addOne);
-    iter(arr1, 5, print);
+    iter(arr1, 5, addOneInt);
+    iter(arr1, 5, printInt);
     std::cout << "\n\n";
 
     // === Test with float ===
     float arr2[] = {1.5f, 2.5f, 3.5f};
     std::cout << "Original float array: ";
-    iter(arr2, 3, print);
+    iter(arr2, 3, printFloat);
     std::cout << "\nAfter addOne: ";
-    iter(arr2, 3, addOne);
-    iter(arr2, 3, print);
+    iter(arr2, 3, addOneFloat);
+    iter(arr2, 3, printFloat);
     std::cout << "\n\n";
 
     // === Test with std::string ===
-    std::string arr3[] = {"hello", "world", "cpp"};
+    std::string arr3[] = {"hello", "world", "1"};
     std::cout << "Original string array: ";
-    iter(arr3, 3, print);
+    iter(arr3, 3, printString);
     std::cout << "\nAfter addOne: ";
-    iter(arr3, 3, addOne);
-    iter(arr3, 3, print);
+    iter(arr3, 3, addOneString);
+    iter(arr3, 3, printString);
     std::cout << "\n\n";
 
     return 0;

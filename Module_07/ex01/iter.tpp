@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   iter.tpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 20:31:41 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/11 20:50:54 by aatieh           ###   ########.fr       */
+/*   Created: 2025/06/11 20:49:47 by aatieh            #+#    #+#             */
+/*   Updated: 2025/06/11 20:50:58 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
-
-# include "iter.tpp"
+#include <cstddef>
 
 template <typename T, typename B>
-void	iter(const T &addr, size_t len, B func);
+void	iter(const T &addr, size_t len, B func)
+{
+	for (size_t i = 0; i < len; i++)
+		func(addr[i]);
+}
 
 template <typename T, typename B>
-void	iter(T &addr, size_t len, B func);
-
-
-#endif
+void	iter(T &addr, size_t len, B func)
+{
+	for (size_t i = 0; i < len; i++)
+		func(addr[i]);
+}
