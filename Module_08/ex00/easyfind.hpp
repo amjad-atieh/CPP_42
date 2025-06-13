@@ -6,9 +6,10 @@
 # include <algorithm>
 # include <iterator>
 
+# include "easyfind.tpp"
+
 template <typename T>
 bool	easyfind(const T &cn, const int num);
 
-#include "easyfind.tpp"
 
 #endif
