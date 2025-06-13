@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:22:11 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/11 20:05:07 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/13 19:55:58 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ int main( void )
 
 	::swap(a, b);
 	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b) = " << ::min(a, b) << std::endl;
-	std::cout << "max(a, b) = " << ::max(a, b) << std::endl;
+	std::cout << "min( a, b) = " << min(a, b) << std::endl;
+	std::cout << "max(a, b) = " << max(a, b) << std::endl;
 
 	std::string c = "chaine1";
 	std::string d = "chaine2";
 
 	::swap(c, d);
 	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min(c, d) = " << ::min(c, d) << std::endl;
-	std::cout << "max(c, d) = " << ::max(c, d) << std::endl;
+	std::cout << "min(c, d) = " << min(c, d) << std::endl;
+	std::cout << "max(c, d) = " << max(c, d) << std::endl;
 
 	return 0;
 }
