@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 17:57:46 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/10 16:12:15 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/19 19:31:02 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Serialization
 {
 	public:
 		static uintptr_t serialize(Data* ptr);
-		static Data* deserialize(uintptr_t raw);
+		static Data* deserialize(uintptr_t &raw);
 
 	private:
 		// Constructors

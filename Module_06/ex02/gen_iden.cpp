@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 16:19:51 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/11 14:47:45 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/19 19:10:09 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void identify(Base& p)
 {
 	try
 	{
-		dynamic_cast<A&>(p);
+		(void)dynamic_cast<A&>(p);
 		std::cout << "Class A" << std::endl;
 		return;
 	}
@@ -59,7 +59,7 @@ void identify(Base& p)
 
 	try
 	{
-		dynamic_cast<B&>(p);
+		(void)dynamic_cast<B&>(p);
 		std::cout << "Class B" << std::endl;
 		return;
 	}
@@ -69,7 +69,7 @@ void identify(Base& p)
 
 	try
 	{
-		dynamic_cast<C&>(p);
+		(void)dynamic_cast<C&>(p);
 		std::cout << "Class C" << std::endl;
 		return;
 	}

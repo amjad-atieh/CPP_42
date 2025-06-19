@@ -6,14 +6,13 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:14:56 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/11 20:01:39 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/19 19:29:39 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <cstdlib>
 #include <iomanip>
-#include <limits.h>
 #include <errno.h>
 
 // Constructors
@@ -42,28 +41,6 @@ ScalarConverter & ScalarConverter::operator=(const ScalarConverter &assign)
 }
 
 // Helper functions
-static void	printOneChar(char c)
-{
-	if ((c >= 0 && c <= 31 && !std::isspace(c)) || c == 127)
-		std::cout << "char: Non displayable" << std::endl;
-	else
-		std::cout << "char: " << c << std::endl;
-}
-static bool safeAtoi(const char* str, int& out)
-{
-    errno = 0;
-    char* end;
-    long val = std::strtol(str, &end, 10);
-
-    if (errno == ERANGE || val > INT_MAX || val < INT_MIN || *end != '\0')
-	{
-        return false;
-	}
-
-    out = static_cast<int>(val);
-    return true;
-}
-
 static int count_decimal_digits(const std::string& input)
 {
 	size_t	len;
@@ -85,13 +62,27 @@ static int count_decimal_digits(const std::string& input)
 		return 1;
 }
 
-static bool printChar(const std::string &input)
+bool ScalarConverter::safeAtoi(const char* str, int& out)
+{
+    errno = 0;
+    char* end;
+    long val = std::strtol(str, &end, 10);
+
+    if (errno == ERANGE || val > INT_MAX || val < INT_MIN || *end != '\0')
+	{
+        return false;
+	}
+
+    out = static_cast<int>(val);
+    return true;
+}
+
+bool	ScalarConverter::printChar(const std::string &input)
 {
 	char	c;
 
 	if (input.size() == 1 && !isdigit(input[0]))
 	{
-		std::cout << "From: " <<  "char" << std::endl;
 		c = input[0];
 		printOneChar(c);
 		std::cout << "int: " << static_cast<int> (c) << std::endl;
@@ -103,14 +94,14 @@ static bool printChar(const std::string &input)
 		return	false;
 }
 
-static bool printInt(const std::string &input)
+// Memeber function
+bool	ScalarConverter::printInt(const std::string &input)
 {
 	int	i;
 
 	if (safeAtoi(input.c_str(), i))
 	{
-		std::cout << "From: " <<  "int" << std::endl;
-		printOneChar(static_cast<char> (i));
+		printOneChar(i);
 		std::cout << "int: " << i << std::endl;
 		std::cout << "float: " << std::fixed <<  std::setprecision(1) << static_cast<float> (i) << 'f' << std::endl;
 		std::cout << "double: " << static_cast<double> (i) << std::endl;
@@ -119,7 +110,7 @@ static bool printInt(const std::string &input)
 	return	false;
 }
 
-static bool	printDouble(const std::string &input)
+bool	ScalarConverter::printDouble(const std::string &input)
 {
 	int		digits;
 	char	*end;
@@ -129,9 +120,8 @@ static bool	printDouble(const std::string &input)
 	d = strtod(input.c_str(), &end);
 	if (*end == '\0')
 	{
-		std::cout << "From: " <<  "double" << std::endl;
-		printOneChar(static_cast<char> (d));
-		std::cout << "int: " << static_cast<int> (d) << std::endl;
+		printOneChar(d);
+		printOneInt(d);
 		std::cout << "float: " << std::fixed  << std::setprecision(digits) << static_cast<float> (d) << 'f' << std::endl;
 		std::cout << "double: " << d << std::endl;
 		return	true;
@@ -139,7 +129,7 @@ static bool	printDouble(const std::string &input)
 	return false;
 }
 
-static bool	printFloat(const std::string &input)
+bool	ScalarConverter::printFloat(const std::string &input)
 {
 	int		digits;
 	char	*end;
@@ -149,9 +139,8 @@ static bool	printFloat(const std::string &input)
 	f = strtof(input.c_str(), &end);
 	if (*end == 'f' && *(end + 1) == '\0')
 	{
-		std::cout << "From: " <<  "float" << std::endl;
-		printOneChar(static_cast<char> (f));
-		std::cout << "int: " << static_cast<int> (f) << std::endl;
+		printOneChar(f);
+		printOneInt(f);
 		std::cout << "float: " << std::fixed << std::setprecision(digits) << f << 'f' << std::endl;
 		std::cout << "double: " << static_cast<double> (f) << std::endl;
 		return true;
@@ -159,7 +148,7 @@ static bool	printFloat(const std::string &input)
 	return false;
 }
 
-static void	impossible()
+void	ScalarConverter::impossible()
 {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
@@ -167,7 +156,6 @@ static void	impossible()
 	std::cout << "double: impossible" << std::endl;
 }
 
-// Memeber function
 void ScalarConverter::convert(const std::string &input)
 {
 	if (input.size() == 0)

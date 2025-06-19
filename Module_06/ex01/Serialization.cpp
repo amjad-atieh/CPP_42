@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 17:57:42 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/09 17:57:43 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/19 19:30:58 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ uintptr_t Serialization::serialize(Data* ptr)
 	return (raw);
 }
 
-Data* Serialization::deserialize(uintptr_t raw)
+Data* Serialization::deserialize(uintptr_t &raw)
 {
 	Data *ptr = reinterpret_cast <Data *>(raw);
 	return ptr;
