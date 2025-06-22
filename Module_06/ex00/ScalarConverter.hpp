@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:14:54 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/22 19:58:56 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/23 00:41:50 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ class ScalarConverter
 		template <typename T>
 		static void	printOneInt(const T &in)
 		{
-			if (isnan(in) || in > INT_MAX || in < INT_MIN)
+			if (isnan(in) || in > static_cast<T> (INT_MAX) || in < static_cast<T> (INT_MIN)
+				|| static_cast<long> (in) > INT_MAX || static_cast<long> (in) < INT_MIN)
 				std::cout << "int: impossible" << std::endl;
 			else
 				std::cout << "int: " << static_cast<int> (in) << std::endl;
