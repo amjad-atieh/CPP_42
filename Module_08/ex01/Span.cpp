@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:37:28 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/23 16:58:27 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/23 17:22:48 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@
 // Constructors
 Span::Span()
 {
-	_N = 100;
-	_isSorted = false;
+    _N = 100;
+    _isSorted = false;
 }
 
 Span::Span(const Span &copy)
 {
-	*this = copy;
-	_isSorted = false;
+    *this = copy;
+    _isSorted = false;
 }
 
 Span::Span(const unsigned N)
 {
-	_N = N;
-	_isSorted = false;
+    _N = N;
+    _isSorted = false;
 }
 
 // Destructor
@@ -39,74 +39,74 @@ Span::~Span()
 }
 
 // Operators
-Span & Span::operator=(const Span &assign)
+Span &Span::operator=(const Span &assign)
 {
-	_N = assign.getN();
-	_content = assign.getContent();
-	return *this;
+    _N = assign.getN();
+    _content = assign.getContent();
+    return *this;
 }
 
 // Getters
-const unsigned int	&Span::getN() const
+const unsigned int &Span::getN() const
 {
-	return _N;
+    return _N;
 }
 
-const std::vector<int>	&Span::getContent() const
+const std::vector<int> &Span::getContent() const
 {
-	return _content;
+    return _content;
 }
 
 // Member functions
-void	Span::addNumber(const int num)
+void Span::addNumber(const int num)
 {
-	if (_content.size() >= _N)
-		throw Span::FullStorage();
-	_content.push_back(num);
-	_isSorted = false;
+    if (_content.size() >= _N)
+        throw Span::FullStorage();
+    _content.push_back(num);
+    _isSorted = false;
 }
 
-int	Span::shortestSpan()
+int Span::shortestSpan()
 {
-	int	res = INT_MAX;
+    int res = INT_MAX;
 
-	if (_content.size() <= 1)
-		throw Span::NoSpan();
-	if (_isSorted == false)
-	{
-		std::sort(_content.begin(), _content.end());
-		_isSorted = true;
-	}
-	for (size_t i = 0; i + 1 < _content.size(); i++)
-	{
-		if (res > _content.at(i + 1) - _content.at(i))
-			res = _content.at(i + 1) - _content.at(i);
-	}
-	return res;
+    if (_content.size() <= 1)
+        throw Span::NoSpan();
+    if (_isSorted == false)
+    {
+        std::sort(_content.begin(), _content.end());
+        _isSorted = true;
+    }
+    for (size_t i = 0; i + 1 < _content.size(); i++)
+    {
+        if (res > _content.at(i + 1) - _content.at(i))
+            res = _content.at(i + 1) - _content.at(i);
+    }
+    return res;
 }
 
-int	Span::longestSpan()
+int Span::longestSpan()
 {
-	int	res;
+    int res;
 
-	if (_content.size() <= 1)
-		throw Span::NoSpan();
-	if (_isSorted == false)
-	{
-		std::sort(_content.begin(), _content.end());
-		_isSorted = true;
-	}
-	res = _content.at(_content.size() - 1) - _content.at(0);
-	return res;
+    if (_content.size() <= 1)
+        throw Span::NoSpan();
+    if (_isSorted == false)
+    {
+        std::sort(_content.begin(), _content.end());
+        _isSorted = true;
+    }
+    res = _content.at(_content.size() - 1) - _content.at(0);
+    return res;
 }
 
 // Exceptions
 const char *Span::FullStorage::what() const throw()
 {
-	return "Storage is already full";
+    return "Storage is already full";
 }
 
-const char	*Span::NoSpan::what() const throw()
+const char *Span::NoSpan::what() const throw()
 {
-	return "Storage doesn't have enough elemnts to have a span";
+    return "Storage doesn't have enough elemnts to have a span";
 }
