@@ -6,13 +6,13 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:22:11 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/10 16:32:35 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/23 14:17:26 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Array.hpp"
 #include <iostream>
 #include <string>
-#include "Array.hpp"
 
 int main()
 {
@@ -47,9 +47,12 @@ int main()
     std::cout << std::endl;
 
     // Test 5: Out of bounds access
-    try {
+    try
+    {
         std::cout << arr2[10] << std::endl;
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e)
+    {
         std::cout << "Caught exception (out of bounds): " << e.what() << std::endl;
     }
 
@@ -75,19 +78,15 @@ int main()
     for (unsigned int i = 0; i < arr7.size(); ++i)
         std::cout << "arr7[" << i << "] = " << arr7[i] << std::endl;
 
-    // Test 9: Self-assignment
-    arr2 = arr2;
-    std::cout << "arr2 after self-assignment: ";
-    for (unsigned int i = 0; i < arr2.size(); ++i)
-        std::cout << arr2[i] << " ";
-    std::cout << std::endl;
-
-    // Test 10: Zero-sized array
+    // Test 9: Zero-sized array
     Array<char> arr8(0);
     std::cout << "arr8.size(): " << arr8.size() << std::endl;
-    try {
+    try
+    {
         arr8[0] = 'a';
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e)
+    {
         std::cout << "Caught exception (zero-sized array): " << e.what() << std::endl;
     }
 

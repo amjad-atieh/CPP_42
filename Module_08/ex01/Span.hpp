@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:37:30 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/09 21:06:27 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/17 16:52:43 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include <vector>
 # include <iterator>
+# include "Span.tpp"
 
 class Span
 {
@@ -41,14 +42,7 @@ class Span
 		int		shortestSpan();
 		int		longestSpan();
 		template <typename Iter>
-		void	insert(Iter begin, const Iter end)
-		{
-			while (begin != end)
-			{
-				addNumber(*begin);
-				begin++;
-			}
-		};
+		void	insert(Iter begin, const Iter end);
 
 		// Exceptions
 		class FullStorage : public std::exception
