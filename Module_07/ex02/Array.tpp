@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 17:57:19 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/23 17:08:59 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/23 14:50:43 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ template <typename T>
 Array<T>::Array()
 {
 	_size = 0;
-	_array = new T[_size];
+	_array = new T[_size]();
 }
 
 template <typename T>
@@ -35,7 +35,7 @@ template <typename T>
 Array<T>::Array(const unsigned int n)
 {
 	_size = n;
-	_array = new T[_size];
+	_array = new T[_size]();
 }
 
 // Destructor
@@ -51,11 +51,11 @@ Array<T> &Array<T>::operator=(const Array<T> &assign)
 {
 	if (this != &assign)
 	{
-		delete[] _array; // Free the existing memory
-		_size = assign.size(); // Copy the size
-		_array = new T[_size]; // Allocate new memory for the array
+		delete[] _array;
+		_size = assign.size();
+		_array = new T[_size];
 		for (unsigned int i = 0; i < _size; ++i)
-			_array[i] = assign[i]; // Copy the elements
+			_array[i] = assign[i];
 	}
 	return *this;
 }

@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:22:11 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/23 14:17:26 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/23 15:23:59 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,25 @@
 #include <iostream>
 #include <string>
 
+template <typename T>
+void    printArray(const Array<T> &arr, const char *name)
+{
+    if (!name)
+    {
+        for (unsigned i = 0; i < arr.size(); ++i)
+            std::cout << arr[i] << " ";
+    }
+    else
+    {
+        for (unsigned int i = 0; i < arr.size(); ++i)
+            std::cout << name << "[" << i << "] = " << arr[i] << std::endl;
+    }
+}
+
 int main()
 {
     // Test 1: Default constructor
-    Array<int> arr1;
+    const Array<int> arr1;
     std::cout << "arr1.size(): " << arr1.size() << std::endl;
 
     // Test 2: Constructor with size
@@ -31,8 +46,7 @@ int main()
     // Test 3: Copy constructor
     Array<int> arr3(arr2);
     std::cout << "arr3 (copy of arr2): ";
-    for (unsigned int i = 0; i < arr3.size(); ++i)
-        std::cout << arr3[i] << " ";
+    printArray(arr3, NULL);
     std::cout << std::endl;
 
     // Test 4: Assignment operator
@@ -42,8 +56,7 @@ int main()
     arr2[0] = 100;
     std::cout << "changed arr2[0] to " << arr2[0] << std::endl;
     std::cout << "arr4: ";
-    for (unsigned int i = 0; i < arr4.size(); ++i)
-        std::cout << arr4[i] << " ";
+    printArray(arr4, NULL);
     std::cout << std::endl;
 
     // Test 5: Out of bounds access
@@ -61,22 +74,19 @@ int main()
     arr5[0] = "Hello";
     arr5[1] = "World";
     arr5[2] = "!";
-    for (unsigned int i = 0; i < arr5.size(); ++i)
-        std::cout << "arr5[" << i << "] = " << arr5[i] << std::endl;
+    printArray(arr5, "arr5");
 
     // Test 7: Const correctness
     const Array<int> arr6(arr2);
     std::cout << "arr6 (const copy of arr2): ";
-    for (unsigned int i = 0; i < arr6.size(); ++i)
-        std::cout << arr6[i] << " ";
+    printArray(arr6, NULL);
     std::cout << std::endl;
 
     // Test 8: Array of doubles
     Array<double> arr7(4);
     for (unsigned int i = 0; i < arr7.size(); ++i)
         arr7[i] = 3.14 * i;
-    for (unsigned int i = 0; i < arr7.size(); ++i)
-        std::cout << "arr7[" << i << "] = " << arr7[i] << std::endl;
+    printArray(arr7, "arr7");
 
     // Test 9: Zero-sized array
     Array<char> arr8(0);
