@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 20:31:41 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/11 20:50:54 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/23 14:13:01 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 # include "iter.tpp"
 
-template <typename T, typename B>
-void	iter(const T &addr, size_t len, B func);
+template <typename T>
+void	iter(const T addr[], size_t len, void (func)(T const&));
 
-template <typename T, typename B>
-void	iter(T &addr, size_t len, B func);
+template <typename T>
+void	iter(T addr[], size_t len, void (func)(T &));
 
 
 #endif
