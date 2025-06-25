@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:14:54 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/23 00:41:50 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/25 21:10:49 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ class ScalarConverter
 		template <typename T>
 		static void	printOneChar(const T &in)
 		{
-			if (isnan(in) || in < 0 || (in >= 0 && in <= 31 && !std::isspace(in)) || in >= 127)
+			if (isnan(in) || in < 0 || in >= 127)
+				std::cout << "char: impossible" << std::endl;
+			else if ((in >= 0 && in <= 31 && !std::isspace(in)))
 				std::cout << "char: Non displayable" << std::endl;
 			else
 				std::cout << "char: " << static_cast<char> (in) << std::endl;
