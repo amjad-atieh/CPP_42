@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:30:32 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/29 17:19:04 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/29 18:59:59 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ typename std::deque<T>::iterator MutantStack<T>::begin()
 }
 
 template <typename T>
-const typename std::deque<T>::const_iterator MutantStack<T>::cbegin() const
+const typename std::deque<T>::iterator MutantStack<T>::begin() const
 {
-	return (this->c.cbegin());
+	return (this->c.begin());
 }
 
 template <typename T>
@@ -54,9 +54,9 @@ typename std::deque<T>::iterator MutantStack<T>::end()
 }
 
 template <typename T>
-const typename std::deque<T>::const_iterator MutantStack<T>::cend() const
+const typename std::deque<T>::iterator MutantStack<T>::end() const
 {
-	return (this->c.cend());
+	return (this->c.end());
 }
 
 
@@ -67,9 +67,9 @@ typename std::deque<T>::reverse_iterator MutantStack<T>::rbegin()
 }
 
 template <typename T>
-const typename std::deque<T>::const_reverse_iterator MutantStack<T>::crbegin() const
+const typename std::deque<T>::reverse_iterator MutantStack<T>::rbegin() const
 {
-	return (this->c.crbegin());
+	return (this->c.rbegin());
 }
 
 template <typename T>
@@ -79,9 +79,9 @@ typename std::deque<T>::reverse_iterator MutantStack<T>::rend()
 }
 
 template <typename T>
-const typename std::deque<T>::const_reverse_iterator MutantStack<T>::crend() const
+const typename std::deque<T>::reverse_iterator MutantStack<T>::rend() const
 {
-	return (this->c.crend());
+	return (this->c.rend());
 }
 
 // Operators
@@ -91,5 +91,4 @@ MutantStack<T> & MutantStack<T>::operator=(const MutantStack<T> &assign)
 	std::stack<T>::operator=(assign);
 	return *this;
 }
-
 #endif

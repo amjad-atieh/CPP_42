@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:05:04 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/29 17:12:45 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/29 18:59:23 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int main()
     }
 
     std::cout << "\n===== Constant Iterators =====" << std::endl;
-    MutantStack<int>::const_iterator cit = mstack.cbegin();
-    while (cit != mstack.cend())
+    MutantStack<int>::iterator cit = mstack.begin();
+    while (cit != mstack.end())
     {
         std::cout << *cit << std::endl;
         ++cit;

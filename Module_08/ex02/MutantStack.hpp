@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:30:32 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/29 17:02:01 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/29 18:59:52 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ class MutantStack : public std::stack<T, std::deque<T> >
 {
 	public:
 		typedef typename std::deque<T>::iterator iterator;
-		typedef typename std::deque<T>::const_iterator const_iterator;
 		typedef typename std::deque<T>::reverse_iterator reverse_iterator;
-		typedef typename std::deque<T>::const_reverse_iterator const_reverse_iterator;
 
 		// Constructors
 		MutantStack();
@@ -35,14 +33,14 @@ class MutantStack : public std::stack<T, std::deque<T> >
 
 		// Member functions
 		iterator begin();
-		const const_iterator cbegin() const;
+		const iterator begin() const;
 		iterator end();
-		const const_iterator cend() const;
+		const iterator end() const;
 
 		reverse_iterator rbegin();
-		const const_reverse_iterator crbegin() const;
+		const reverse_iterator rbegin() const;
 		reverse_iterator rend();
-		const const_reverse_iterator crend() const;
+		const reverse_iterator rend() const;
 
 		// Operators
 		MutantStack & operator=(const MutantStack &assign);
