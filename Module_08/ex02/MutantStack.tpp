@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:30:32 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/23 19:06:50 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/29 14:43:25 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,19 @@ typename std::deque<T>::iterator MutantStack<T>::begin()
 }
 
 template <typename T>
+const typename std::deque<T>::iterator MutantStack<T>::begin() const
+{
+	return (this->c.begin());
+}
+
+template <typename T>
 typename std::deque<T>::iterator MutantStack<T>::end()
+{
+	return (this->c.end());
+}
+
+template <typename T>
+const typename std::deque<T>::iterator MutantStack<T>::end() const
 {
 	return (this->c.end());
 }

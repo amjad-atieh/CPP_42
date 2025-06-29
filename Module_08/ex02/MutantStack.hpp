@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:30:32 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/23 19:08:51 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/29 14:42:56 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ class MutantStack : public std::stack<T, std::deque<T> >
 
 		// Member functions
 		iterator begin();
+		const iterator begin() const;
 		iterator end();
+		const iterator end() const;
 
 		// Operators
 		MutantStack & operator=(const MutantStack &assign);
