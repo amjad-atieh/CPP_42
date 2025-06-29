@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 17:57:19 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/23 14:50:43 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/29 14:36:18 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,15 @@ Array<T> &Array<T>::operator=(const Array<T> &assign)
 }
 
 template <typename T>
-T &Array<T>::operator[](unsigned int i) const
+const T &Array<T>::operator[](unsigned int i) const
+{
+	if (i >= _size)
+		throw std::out_of_range("Index out of range");
+	return _array[i];
+}
+
+template <typename T>
+T &Array<T>::operator[](unsigned int i)
 {
 	if (i >= _size)
 		throw std::out_of_range("Index out of range");
