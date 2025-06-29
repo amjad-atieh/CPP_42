@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:30:32 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/29 14:43:25 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/29 17:02:17 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typename std::deque<T>::iterator MutantStack<T>::begin()
 }
 
 template <typename T>
-const typename std::deque<T>::iterator MutantStack<T>::begin() const
+const typename std::deque<T>::const_iterator MutantStack<T>::cbegin() const
 {
 	return (this->c.begin());
 }
@@ -54,9 +54,34 @@ typename std::deque<T>::iterator MutantStack<T>::end()
 }
 
 template <typename T>
-const typename std::deque<T>::iterator MutantStack<T>::end() const
+const typename std::deque<T>::const_iterator MutantStack<T>::cend() const
 {
 	return (this->c.end());
+}
+
+
+template <typename T>
+typename std::deque<T>::reverse_iterator MutantStack<T>::rbegin()
+{
+	return (this->c.rbegin());
+}
+
+template <typename T>
+const typename std::deque<T>::const_reverse_iterator MutantStack<T>::crbegin() const
+{
+	return (this->c.rbegin());
+}
+
+template <typename T>
+typename std::deque<T>::reverse_iterator MutantStack<T>::rend()
+{
+	return (this->c.rend());
+}
+
+template <typename T>
+const typename std::deque<T>::const_reverse_iterator MutantStack<T>::crend() const
+{
+	return (this->c.rend());
 }
 
 // Operators

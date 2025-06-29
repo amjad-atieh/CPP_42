@@ -6,100 +6,81 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:05:04 by aatieh            #+#    #+#             */
-/*   Updated: 2025/06/23 19:48:10 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/06/29 17:12:45 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
+#include <iostream>
 
-int	main()
+int main()
 {
-	std::cout << "================ my output ================" << std::endl;
-	{
-		MutantStack<int> mstack;
+    std::cout << "===== Basic Stack Behavior =====" << std::endl;
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << "Top: " << mstack.top() << std::endl; // 17
+    mstack.pop();
+    std::cout << "Size after pop: " << mstack.size() << std::endl; // 1
 
-		mstack.push(5);
-		mstack.push(17);
+    std::cout << "\n===== Pushing More Elements =====" << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    mstack.push(0);
 
-		std::cout << mstack.top() << std::endl;
+    std::cout << "All elements (using iterator):" << std::endl;
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    ++it;
+    --it;
+    while (it != ite)
+    {
+        std::cout << *it << std::endl;
+        ++it;
+    }
 
-		mstack.pop();
+    std::cout << "\n===== Copy Constructor (std::stack) =====" << std::endl;
+    std::stack<int> s(mstack);
+    std::cout << "Copied stack top: " << s.top() << std::endl;
 
-		std::cout << mstack.size() << std::endl;
+    std::cout << "\n===== Reverse Iteration =====" << std::endl;
+    MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+    MutantStack<int>::reverse_iterator rite = mstack.rend();
+    while (rit != rite)
+    {
+        std::cout << *rit << std::endl;
+        ++rit;
+    }
 
-		mstack.push(3);
-		mstack.push(5);
-		mstack.push(564);
-		mstack.push(786);
-		mstack.push(876);
-		mstack.push(7937);
-		mstack.push(45);
-		mstack.push(788);
-		mstack.push(7);
-		mstack.push(78);
-		mstack.push(754637);
-		mstack.push(5432);
-		mstack.push(557);
-		mstack.push(45687);
-		mstack.push(2354);
-		mstack.push(587);
-		mstack.push(632);
-		mstack.push(737);
-		mstack.push(548);
-		mstack.push(0);
+    std::cout << "\n===== Constant Iterators =====" << std::endl;
+    MutantStack<int>::const_iterator cit = mstack.cbegin();
+    while (cit != mstack.cend())
+    {
+        std::cout << *cit << std::endl;
+        ++cit;
+    }
 
-		MutantStack<int>::iterator it = mstack.begin();
-		MutantStack<int>::iterator ite = mstack.end();
+    std::cout << "\n===== Copy and Assignment =====" << std::endl;
+    MutantStack<int> copyStack(mstack); // copy constructor
+    MutantStack<int> assignedStack;
+    assignedStack = mstack; // assignment operator
 
-		while (it != ite)
+    std::cout << "Iterating over copied stack:" << std::endl;
+	
+		MutantStack<int>::iterator copied_it = copyStack.begin();
+    while (copied_it != copyStack.end())
 		{
-			std::cout << *it << std::endl;
-			++it;
+			std::cout << *copied_it << std::endl;
+			copied_it++;
 		}
-		std::stack<int> s(mstack);
-	}
-	std::cout << "================ perfect output ================" << std::endl;
-	{
-		std::deque<int> mstack;
 
-		mstack.push_back(5);
-		mstack.push_back(17);
-
-		std::cout << mstack.back() << std::endl;
-
-		mstack.pop_back();
-
-		std::cout << mstack.size() << std::endl;
-
-		mstack.push_back(3);
-		mstack.push_back(5);
-		mstack.push_back(564);
-		mstack.push_back(786);
-		mstack.push_back(876);
-		mstack.push_back(7937);
-		mstack.push_back(45);
-		mstack.push_back(788);
-		mstack.push_back(7);
-		mstack.push_back(78);
-		mstack.push_back(754637);
-		mstack.push_back(5432);
-		mstack.push_back(557);
-		mstack.push_back(45687);
-		mstack.push_back(2354);
-		mstack.push_back(587);
-		mstack.push_back(632);
-		mstack.push_back(737);
-		mstack.push_back(548);
-		mstack.push_back(0);
-
-		std::deque<int>::iterator it = mstack.begin();
-		std::deque<int>::iterator ite = mstack.end();
-
-		while (it != ite)
+    std::cout << "Iterating over assigned stack:" << std::endl;
+		MutantStack<int>::iterator copied_assigned_it = assignedStack.begin();
+    while (copied_assigned_it != assignedStack.end())
 		{
-			std::cout << *it << std::endl;
-			++it;
+			std::cout << *copied_assigned_it << std::endl;
+			copied_assigned_it++;
 		}
-	}
-	return 0;
 }
+
