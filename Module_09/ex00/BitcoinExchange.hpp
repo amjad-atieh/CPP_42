@@ -1,57 +1,55 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 19:25:31 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/24 20:32:24 by aatieh           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef BITCOINEXCHANGE_HPP
-# define BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
 
-# include <iostream>
-# include <string>
-# include <map>
-# include <ctime>
+#include <fstream>
+#include <ios>
+#include <iostream>
+#include <map>
+#include <sstream>
+#include <string>
 
 class BitcoinExchange
 {
-	public:
-		// Constructors
-		BitcoinExchange();
-		BitcoinExchange(const BitcoinExchange &copy);
+  public:
+    // Constructors
+    BitcoinExchange();
+    BitcoinExchange(const BitcoinExchange &copy);
 
-		// Destructor
-		~BitcoinExchange();
+    // Destructor
+    ~BitcoinExchange();
 
-		// Operators
-		BitcoinExchange & operator=(const BitcoinExchange &assign);
+    // Operators
+    BitcoinExchange &operator=(const BitcoinExchange &assign);
 
-		// Getters
-		const std::map<time_t, float> &getData() const;
+    // Memeber functions
+    void addDataLine(std::string &line);
+    void addData(const char *dataFile);
+    void takeInput(const char *inputFile);
+    void takeLine(std::stringstream &line);
 
-		// Member function
-		void	addData(const std::string &newDate);
-		void	readFile(const char *fileName);
-		static time_t StringToTimeT(const std::string& dateStr);
-		float	dateValue(const std::string &queryDate) const;
+    class FailedToOpenFile : public std::exception
+    {
+        virtual const char *what() const throw();
+    };
+    class BadInput : public std::exception
+    {
+        virtual const char *what() const throw();
+    };
+    class BadDate : public std::exception
+    {
+        virtual const char *what() const throw();
+    };
+    class NegativeNumber : public std::exception
+    {
+        virtual const char *what() const throw();
+    };
+    class NumberTooLarge : public std::exception
+    {
+        virtual const char *what() const throw();
+    };
 
-		// Exceptions
-		class IncorrectFormat : public std::exception
-		{
-			virtual const char *what() const throw();	
-		};
-		class IncorrectValue : public std::exception
-		{
-			virtual const char *what() const throw();	
-		};
-
-	private:
-		std::map<time_t, float> _data;
+  private:
+    std::map<time_t, float> _data;
 };
 
 #endif
