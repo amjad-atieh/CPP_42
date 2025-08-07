@@ -69,6 +69,15 @@ bool safeAtoi(const char *str, int &out)
     return true;
 }
 
+static void charExist(const std::string str, char needle)
+{
+    if (str.find_first_of(needle) == std::string::npos)
+    {
+        std::cout << "aaa\n";
+        throw (BitcoinExchange::BadInput());
+    }
+}
+
 static time_t takeDate(std::string date)
 {
     struct tm dateTime;
@@ -76,21 +85,21 @@ static time_t takeDate(std::string date)
     std::string tmp;
     std::string rest;
 
+    charExist(date, '-');
     tmp = date.substr(0, date.find_first_of("-"));
     rest = date.substr(date.find_first_of("-") + 1);
     if (!safeAtoi(tmp.c_str(), dateTime.tm_year))
         throw(BitcoinExchange::BadDate());
     dateTime.tm_year -= 1900;
 
+    charExist(rest, '-');
     tmp = rest.substr(0, rest.find_first_of("-"));
     rest = rest.substr(rest.find_first_of("-") + 1);
     if (!safeAtoi(tmp.c_str(), dateTime.tm_mon))
         throw(BitcoinExchange::BadDate());
     dateTime.tm_mon -= 1;
 
-    tmp = rest.substr(0, rest.find_first_of("-"));
-    rest = rest.substr(rest.find_first_of("-") + 1);
-    if (!safeAtoi(tmp.c_str(), dateTime.tm_mday))
+    if (!safeAtoi(rest.c_str(), dateTime.tm_mday))
         throw(BitcoinExchange::BadDate());
 
     timeStamp = validateDate(dateTime.tm_year, dateTime.tm_mon, dateTime.tm_mday);
@@ -105,10 +114,13 @@ void BitcoinExchange::addDataLine(std::string &line)
     float num;
     char *end;
 
+    charExist(line, ',');
     numString = line.substr(line.find(",") + 1);
     dateString = line.substr(0, line.find(","));
     date = takeDate(dateString);
     num = strtof(numString.c_str(), &end);
+    if (*end != '\0')
+        throw (BitcoinExchange::BadInput());
     _data.insert(std::pair<time_t, float>(date, num));
 }
 
@@ -142,10 +154,12 @@ void BitcoinExchange::takeLine(std::stringstream &line)
     line >> dateString;
     line >> tmp;
     if (strcmp("|", tmp.c_str()))
-        throw(BitcoinExchange::BadInput());
+        throw (BitcoinExchange::BadInput());
     line >> numString;
     date = takeDate(dateString);
     num = strtof(numString.c_str(), &end);
+    if (*end != '\0')
+        throw (BitcoinExchange::BadInput());
     if (num < 0)
         throw(BitcoinExchange::NegativeNumber());
     else if (num > 1000)

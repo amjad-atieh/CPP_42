@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 19:25:39 by aatieh            #+#    #+#             */
-/*   Updated: 2025/08/06 21:44:17 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/08/07 19:25:56 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int ac, char **av)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << "bb\n" << '\n';
+		std::cerr << e.what() << " in the data file" << std::endl;
 		return 1;
 	}
 	
