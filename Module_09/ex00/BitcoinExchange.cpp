@@ -6,30 +6,27 @@
 // Constructors
 BitcoinExchange::BitcoinExchange()
 {
-    std::cout << "\e[0;33mDefault Constructor called of BitcoinExchange\e[0m" << std::endl;
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
 {
-    (void)copy;
-    std::cout << "\e[0;33mCopy Constructor called of BitcoinExchange\e[0m" << std::endl;
+    *this = copy;
 }
 
 // Destructor
 BitcoinExchange::~BitcoinExchange()
 {
-    std::cout << "\e[0;31mDestructor called of BitcoinExchange\e[0m" << std::endl;
 }
 
 // Operators
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &assign)
 {
-    (void)assign;
+    _data = assign.getData();
     return *this;
 }
 
-// Memebr functions
-time_t validateDate(int year, int month, int day)
+// Helper functions
+static time_t validateDate(int year, int month, int day)
 {
     struct tm t;
     time_t time;
@@ -52,7 +49,7 @@ time_t validateDate(int year, int month, int day)
     return (time);
 }
 
-bool safeAtoi(const char *str, int &out)
+static bool safeAtoi(const char *str, int &out)
 {
     errno = 0;
     char *end;
@@ -106,6 +103,21 @@ static time_t takeDate(std::string date)
     return (timeStamp);
 }
 
+static void printValue(const std::map<time_t, float>& data, const time_t date, const std::string &dateString, float num)
+{
+    std::map<time_t, float>::const_iterator it = data.upper_bound(date);
+    if (it != data.begin())
+    {
+        --it;
+        std::cout << dateString << " => " << num << " = " << num * it->second << std::endl;
+    }
+    else
+    {
+        std::cout << "No earlier date found." << std::endl;
+    }
+}
+
+// Memebr functions
 void BitcoinExchange::addDataLine(std::string &line)
 {
     std::string numString;
@@ -164,16 +176,7 @@ void BitcoinExchange::takeLine(std::stringstream &line)
         throw(BitcoinExchange::NegativeNumber());
     else if (num > 1000)
         throw(BitcoinExchange::NumberTooLarge());
-    std::map<time_t, float>::iterator it = _data.upper_bound(date);
-    if (it != _data.begin())
-    {
-        --it;
-        std::cout << dateString << " => " << numString << " = " << num * it->second << std::endl;
-    }
-    else
-    {
-        std::cout << "No earlier date found." << std::endl;
-    }
+    printValue(_data, date, dateString, num);
 }
 
 void BitcoinExchange::takeInput(const char *inputFile)
@@ -200,6 +203,12 @@ void BitcoinExchange::takeInput(const char *inputFile)
             std::cerr << e.what() << '\n';
         }
     }
+}
+
+// Getters
+const std::map<time_t, float>& BitcoinExchange::getData() const
+{
+    return _data;
 }
 
 // Exceptions

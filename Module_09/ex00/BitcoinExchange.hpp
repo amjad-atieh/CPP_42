@@ -27,6 +27,9 @@ class BitcoinExchange
     void takeInput(const char *inputFile);
     void takeLine(std::stringstream &line);
 
+    // Getters
+    const std::map<time_t, float>& getData() const;
+
     class FailedToOpenFile : public std::exception
     {
         virtual const char *what() const throw();
