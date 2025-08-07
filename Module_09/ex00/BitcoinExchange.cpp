@@ -70,7 +70,6 @@ static void charExist(const std::string str, char needle)
 {
     if (str.find_first_of(needle) == std::string::npos)
     {
-        std::cout << "aaa\n";
         throw (BitcoinExchange::BadInput());
     }
 }
