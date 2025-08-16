@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aatieh <aatieh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 19:26:42 by aatieh            #+#    #+#             */
-/*   Updated: 2025/08/10 14:18:39 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/08/16 17:08:19 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,5 @@ void starting(char **av)
     }
     std::cout << std::endl;
     std::cout << "Time to process a range of " << dataDeque.size() << " elements with std::deque : " << timeDeque << " us" << std::endl;
-    std::cout << "Time to process a range of " << dataVec.size() << " elements with std::deque : " << timeVec << " us" << std::endl;
+    std::cout << "Time to process a range of " << dataVec.size() << " elements with std::vector : " << timeVec << " us" << std::endl;
 }
