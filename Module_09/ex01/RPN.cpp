@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 19:26:12 by aatieh            #+#    #+#             */
-/*   Updated: 2025/05/25 03:12:21 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/08/20 10:06:53 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int	RPN::doMath(const char *input)
 		else
 			throw RPN::InvalidChar();
 	}
+	if (_num.size() != 1)
+		throw RPN::InvalidFormat();
 	return _num.top();
 }
 
