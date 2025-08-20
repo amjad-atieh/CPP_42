@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aatieh <aatieh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 19:26:48 by aatieh            #+#    #+#             */
-/*   Updated: 2025/08/10 14:07:29 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/08/20 10:30:46 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 std::vector<int> splitTwo(std::vector<std::vector<int> >& lst, size_t i, size_t j);
 std::deque<int> splitTwo(std::deque<std::deque<int> >& lst, size_t i, size_t j);
-void start(const std::vector<int>& input);
+std::vector<std::vector<int> > start(const std::vector<int>& input);
 std::deque<std::deque<int> > start(const std::deque<int>& input);
 void starting(char **av);
 
@@ -88,13 +88,11 @@ void megreTwo(Container& lst, size_t i, size_t j)
 }
 
 template <typename Container>
-void insertSort(Container& lst, Container& leftOver)
+void  addLeftOver(Container& lst, Container& leftOver, size_t initalSize)
 {
-  size_t initalSize = lst[0].size();
-  size_t j;
   int left, right, b, mid;
 
-  if (leftOver.size() >= 1 && leftOver[0].size() >= initalSize)
+  if (leftOver.size() > 0 && leftOver[0].size() >= initalSize)
   {
     b = leftOver[0][0];
     left = 0;
@@ -111,6 +109,15 @@ void insertSort(Container& lst, Container& leftOver)
     lst.insert(lst.begin() + left, leftOver[0]);
     leftOver.erase(leftOver.begin());
   }
+}
+
+template <typename Container>
+void insertSort(Container& lst, Container& leftOver)
+{
+  size_t initalSize = lst[0].size();
+  size_t j;
+  int left, right, b, mid;
+
   for (size_t i = 0; i < lst.size(); i++)
   {
     if (lst[i].size() >= initalSize)
@@ -131,6 +138,7 @@ void insertSort(Container& lst, Container& leftOver)
       lst.insert(lst.begin() + left, splitTwo(lst, i, j));
     }
   }
+  addLeftOver(lst, leftOver, lst[0].size());
 }
 
 

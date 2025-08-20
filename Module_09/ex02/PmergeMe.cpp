@@ -6,7 +6,7 @@
 /*   By: aatieh <aatieh@student.42amman.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 19:26:42 by aatieh            #+#    #+#             */
-/*   Updated: 2025/08/16 17:08:19 by aatieh           ###   ########.fr       */
+/*   Updated: 2025/08/20 10:38:00 by aatieh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ std::deque<int> splitTwo(std::deque<std::deque<int> > &lst, size_t i, size_t j)
     return newVec;
 }
 
-void start(const std::vector<int> &input)
+std::vector<std::vector<int> > start(const std::vector<int> &input)
 {
     std::vector<std::vector<int> > lst;
 
     if (input.size() <= 0)
-        return;
+        return lst;
     for (size_t i = 0; i < input.size(); i++)
     {
         std::vector<int> tmp;
@@ -49,6 +49,7 @@ void start(const std::vector<int> &input)
         lst.push_back(tmp);
     }
     sortVec(lst);
+    return lst;
 }
 
 std::deque<std::deque<int> > start(const std::deque<int> &input)
@@ -71,7 +72,7 @@ void starting(char **av)
 {
     std::vector<int> dataVec;
     std::deque<int> dataDeque;
-    std::deque<std::deque<int> > lst;
+    std::vector<std::vector<int> > lst;
     clock_t end;
     clock_t begin;
     double timeVec, timeDeque;
@@ -86,11 +87,11 @@ void starting(char **av)
     }
     std::cout << std::endl;
     begin = clock();
-    start(dataVec);
+    lst = start(dataVec);
     end = clock();
     timeVec = (end - begin) * 1e6 / (double)CLOCKS_PER_SEC;
     begin = clock();
-    lst = start(dataDeque);
+    start(dataDeque);
     end = clock();
     timeDeque = (end - begin) * 1e6 / (double)CLOCKS_PER_SEC;
 
